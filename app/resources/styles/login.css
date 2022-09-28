@@ -17,13 +17,9 @@ footer{
 }
 
 #headerLogo {
-    display: block;
     margin-top: 25px;
     margin-bottom: 25px;
-    margin-left: auto;
-    margin-right: auto;
     width: 50%;
-    justify-content: center;
     height: 80px;
     width: auto;
 }
@@ -33,9 +29,6 @@ footer{
     width: 40%;
     height: 50px;
     margin-top: 15px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .loginInput {
@@ -50,11 +43,10 @@ footer{
 }
 
 .outsidebox{
-    justify-content: center;
-    text-align: center;
     border-radius: 15px;
-    margin: auto;
     width: 40%;
+    margin-left: auto;
+    margin-right: auto;
     padding: 40px;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -64,15 +56,22 @@ footer{
 
 .redirectRegister {
     margin-top: 5px;
+}
+
+.centerAll {
+    margin-top: 70px;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
+    align-self: center;
 }
 
 input {
-    background-color:transparent;
     border: 0px solid;
     height:30px;
     width:260px;
 }
+
 input:focus {
     outline:none;
 }
