@@ -7,26 +7,7 @@
 </head>
 
 <body>
-	<header>
-		<img src="/app/resources/images/instashamLogo.png" alt="logo" id="headerLogo">
-		<div class="searchBar">
-			<input type="text" name="search_bar" id="search_bar">
-		</div>
-		<div class="tabLinks">
-			<div class="tabLink homeLink">
-				<img src="/app/resources/images/home.png" alt="">
-			</div>
-			<div class="tabLink messengerLink">
-				<img src="/app/resources/images/dm.png" alt="">
-			</div>
-			<div class="tabLink createPostLink">
-				<img src="/app/resources/images/post.svg" alt="">
-			</div>
-			<div class="tabLink exploreLink">explore</div>
-			<div class="tabLink notificationsLink">notifications</div>
-			<div class="tabLink profileLink">profile</div>
-		</div>
-	</header>
+	<?php $this->view('Layout/Header'); ?>
 	<main>
 		/* 
 			add content through php view method depending on the tabLink selected

@@ -1,0 +1,56 @@
+implement models and controllers:
+	-user
+	-publication
+	-comment
+	-profile
+
+create view for registering or logging in
+	-registering:
+		-email/phone number
+		-username
+		-first name / last name
+		-password
+	-logging in:
+		-phone/username/email
+		-password
+create view for home for browsing recent publications
+	-sort by date and only include top something publications unless we click a button to see more, include next top blah blah blah
+create view for creating a new post (subview)
+	-insert image
+	-caption (optional)
+create view for exploring
+create view for notifications (subview)
+create view with list of options when clicking profile image
+	-profile
+	[optional]-saved
+	-settings
+	[optional]-report a problem
+	[optional]-switch accounts
+	-logout
+create view for profile
+	-profile picture
+	-username
+	-full name
+	-pronouns (optional)
+	-description
+	-new post button
+	-number of posts
+	-edit profile
+	-settings
+	-posts
+	-# likes on each post upon hover
+	-# comments on each post upon hover
+	-open post as subview with comments displayed
+		-buttons to like, comment or share
+		-options
+			-delete
+			-edit
+			-hide like count
+			-turn off commenting
+			-copy link (share)
+			-cancel
+		-left/right arrows to go to next/previous publication
+
+
+
+[optional] create page for messaging 
