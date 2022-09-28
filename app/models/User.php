@@ -13,7 +13,7 @@
         public function getUserPasswordByPassword($password){
             $SQL = "SELECT * FROM user WHERE password_hash = :password";
             $STMT = self::$_connection->prepare($SQL);
-            $STMT->execute(['password'=>$username]);
+            $STMT->execute(['password'=>$password]);
             $STMT->setFetchMode(\PDO::FETCH_CLASS,'app\models\User');
             return $STMT->fetch();
         }
@@ -21,7 +21,7 @@
       
             $SQL = "SELECT * FROM user WHERE user_id = :id";
             $STMT = self::$_connection->prepare($SQL);
-            $STMT->execute(['id'=>$username]);
+            $STMT->execute(['id'=>$id]);
             $STMT->setFetchMode(\PDO::FETCH_CLASS,'app\models\User');
             return $STMT->fetch();
         }
@@ -32,5 +32,18 @@
             $STMT->execute();
             $STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\User');
             return $STMT->fetchAll();
+        }
+
+        public function insert(){
+            $SQL = "INSERT INTO user(user_id, username, password_hash) VALUES (:user_id, :username, :password_hash )";
+            $STMT = self::$_connection->prepare($SQL);
+            $STMT->execute(['user_id'=>$this->user_id,
+                            'username'=>$this->username,
+                            'password_hash'=>$this->password_hash]);
+        }
+
+        public function hashPassword($password){
+            // TODO: HASH LOGIC
+            // RETURN A HASH PASSWORD
         }
     }
