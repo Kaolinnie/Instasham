@@ -35,10 +35,9 @@
         }
 
         public function insert(){
-            $SQL = "INSERT INTO user(user_id, username, password_hash) VALUES (:user_id, :username, :password_hash )";
+            $SQL = "INSERT INTO user(username, password_hash) VALUES (:user_id, :username, :password_hash )";
             $STMT = self::$_connection->prepare($SQL);
-            $STMT->execute(['user_id'=>$this->user_id,
-                            'username'=>$this->username,
+            $STMT->execute(['username'=>$this->username,
                             'password_hash'=>$this->password_hash]);
         }
 
