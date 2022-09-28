@@ -13,12 +13,18 @@
 			<input type="text" name="search_bar" id="search_bar">
 		</div>
 		<div class="tabLinks">
-			<div class="tabLink homeLink"></div>
-			<div class="tabLink messengerLink"></div>
-			<div class="tabLink createPostLink"></div>
-			<div class="tabLink exploreLink"></div>
-			<div class="tabLink notificationsLink"></div>
-			<div class="tabLink profileLink"></div>
+			<div class="tabLink homeLink">
+				<img src="/app/resources/images/home.png" alt="">
+			</div>
+			<div class="tabLink messengerLink">
+				<img src="/app/resources/images/dm.png" alt="">
+			</div>
+			<div class="tabLink createPostLink">
+				<img src="/app/resources/images/post.svg" alt="">
+			</div>
+			<div class="tabLink exploreLink">explore</div>
+			<div class="tabLink notificationsLink">notifications</div>
+			<div class="tabLink profileLink">profile</div>
 		</div>
 	</header>
 	<main>
