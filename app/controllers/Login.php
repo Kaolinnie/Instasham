@@ -22,9 +22,10 @@ class Login extends \app\core\Controller{
 			if($currentUser->getUserByUsername($username)){
 				if($currentUser->getUserPasswordByPassword($password)){
 					// redirect to the profile page
+					
 				} else {
 					// TODO: Display invalid password
-					
+					$this->view("Login/login", "wrong password");
 				}
 			}
 			else{
@@ -32,5 +33,7 @@ class Login extends \app\core\Controller{
 			}
 		}
 	}
+
+	
 
 }
