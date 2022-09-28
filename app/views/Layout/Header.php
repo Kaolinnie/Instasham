@@ -7,22 +7,34 @@
         </div>
         <div class="tabLinks">
             <div class="tabLink homeLink">
-                <img src="/app/resources/images/home.png" alt="">
+                <a href="">
+                    <img src="/app/resources/images/home.png" alt="">
+                </a>
             </div>
             <div class="tabLink messengerLink">
-                <img src="/app/resources/images/dm.png" alt="">
+                <a href="">
+                    <img src="/app/resources/images/dm.png" alt="">
+                </a>
             </div>
             <div class="tabLink createPostLink">
-                <img src="/app/resources/images/add.png" alt="">
+                <a href="">
+                    <img src="/app/resources/images/add.png" alt="">
+                </a>
             </div>
             <div class="tabLink exploreLink">
-                <img src="/app/resources/images/explore.png" alt="">
+                <a href="">
+                    <img src="/app/resources/images/explore.png" alt="">
+                </a>
             </div>
             <div class="tabLink notificationsLink">
-                <img src="/app/resources/images/heart.png" alt="">
+                <a href="">
+                    <img src="/app/resources/images/heart.png" alt="">
+                </a>
             </div>
             <div class="tabLink profileLink">
-                <img src="/images/cat.png" alt="">
+                <a href="">
+                    <img src="/images/cat.png" alt="">
+                </a>
             </div>
         </div>
     </div>

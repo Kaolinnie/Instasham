@@ -70,3 +70,6 @@ main {
     /* un-comment this background-color for the real colour */
     /* background-color: #fcfcfc; */
 }
+.tabLink:hover {
+    filter: drop-shadow(0px 0px 10px rgb(0, 119, 255));
+}
