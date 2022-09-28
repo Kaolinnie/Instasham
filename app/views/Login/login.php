@@ -8,15 +8,14 @@
 <body>
 <img src="/app/resources/images/instashamLogo.png" alt="logo" id="headerLogo">
     <div class="outsidebox">
-        <div class="usernameStyle">
-            <input type="text" placeholder="Username"><br>
-        </div>
-        <div class="passwordStyle">
-            <input type="password" placeholder="Password">
-        </div>
-     </div>
-    <button type="button" class="btn btn-primary" id="loginbtn">Login</button>
+        <form action="/Controllers/verifyUser" method="post">
+            <input class="usernameStyle loginInput" name="username" type="text" placeholder="Username"><br>
+            <input class="passwordStyle loginInput" name="password" type="password" placeholder="Password">
+        </form>
+    </div>
+    <input type="submit" class="btn btn-primary" id="loginbtn" value="Login" name="loginSubmit"></input>
     <div class="redirectRegister">Don't have an account? <a href="">Sign up here!</a></div>
+    <!-- DISPLAY ERROR MESSAGE -->
 
     <footer>Created by Eris, Jeffrey and Kaolin</footer>
 </body>
