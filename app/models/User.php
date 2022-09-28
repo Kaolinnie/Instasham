@@ -41,8 +41,5 @@
                             'password_hash'=>$this->password_hash]);
         }
 
-        public function hashPassword($password){
-            // TODO: HASH LOGIC
-            // RETURN A HASH PASSWORD
-        }
+     
     }
