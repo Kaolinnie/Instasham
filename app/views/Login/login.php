@@ -9,7 +9,7 @@
     <div class="centerAll">
 <img src="/app/resources/images/instashamLogo.png" alt="logo" id="headerLogo">
     <div class="outsidebox">
-        <form action="/Controllers/verifyUser" method="post">
+        <form action="/Login/verifyUser" method="post">
             <input class="usernameStyle loginInput" name="username" type="text" placeholder="Username"><br>
             <input class="passwordStyle loginInput" name="password" type="password" placeholder="Password">
         </form>

@@ -5,6 +5,7 @@ class Register extends \app\core\Controller{
 
     public function registerNewUser(){
         if(isset($_POST['registerSubmit'])){
+            echo "register";
             $newUser = new \app\models\User();
             $username = $_POST['username'];
             $password = $_POST['password'];
@@ -17,8 +18,8 @@ class Register extends \app\core\Controller{
                 $hashPass = $this->hashPassword($passwordVerify);
                 $newUser->password = $hashPass;
                 $newUser->insert();
-                // Redirect to the create profile
-                //header('location/Profile/profile');
+                // Redirect back to login
+                header('location/Login/login');
             }else{
                 // TODO: Display an error message, user already exists!
             }
