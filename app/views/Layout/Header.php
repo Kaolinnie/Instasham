@@ -7,7 +7,7 @@
         </div>
         <div class="tabLinks">
             <div class="tabLink homeLink">
-                <a href="/Main/index/<?=$data->user_id?>">
+                <a href="/Main/index/<?=$data->profile_id?>">
                     <img src="/app/resources/images/home.png" alt="">
                 </a>
             </div>
@@ -32,7 +32,7 @@
                 </a>
             </div>
             <div class="tabLink profileLink">
-                <a href="/Profile/index/<?=$data->user_id ?>">
+                <a href="/Profile/index/<?=$data->profile_id ?>">
                     <img src="/images/profiles/<?=$data->profile_pic?>" alt="">
                 </a>
             </div>

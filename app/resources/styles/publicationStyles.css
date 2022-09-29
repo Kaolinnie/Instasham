@@ -1,37 +1,45 @@
-.imgSide img {
-    width: auto;
-    max-width: 50%;
-    height: 100%;
-    position: absolute;
-    top:0;
-    left:0;
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .publicationDiv {
-    position: absolute;
+    display: flex;
     width: 75%;
-    height: 80%;
-    left: 10%;
-    top: 15%;
+    max-height: 74%;
     border: 1px rgb(230, 230, 230) solid;
     box-shadow: 0 0 5px #888888;
+    overflow:hidden;
+}
+.imgSide {
+    width: 50%;
+    height: 100%;
+}
+.imgSide img {
+    width: 100%;
+    height: auto;
 }
 .commentSide {
+    display: block;
+    position: relative;
     width: 50%;
-    position: absolute;
-    top:0;
-    right:0;
-    height: 100%;
     padding-left: -10px;
+}
+.captionDiv {
+    height:20%;
+    overflow:auto;
 }
 .commentsDiv {
     display: flex;
+    flex-direction: column;
     overflow-y:auto;
+    height:72%;
 }
 .comment {
     position: relative;
     float:left;
     width: 100%;
-    height: 50px;
+    height: 75px;
     border-bottom: 1px lightgrey solid;
     padding:5px;
 }
@@ -47,21 +55,29 @@
     position: absolute;
     left: 15%;
     font-size: 0.8em;
+    text-decoration: underline;
 }
 .commentText {
     width: auto;
     position: absolute;
     left: 15%;
-    top: 40%;
-    font-size: 0.7em;
+    top: 35%;
+    font-size: 0.8em;
     text-overflow:ellipsis;
 }
-
 .writeComment {
-    width: 99%;
     position: absolute;
-    bottom: 5px;
-    height: 40px;
+    bottom: 0;
+    height: 8%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    padding-bottom:5px;
+    padding-top:5px;
+}
+.writeComment form {
+    width: 99%;
 }
 #writeComment {
     width: 100%;
@@ -79,4 +95,24 @@
     position: absolute;
     right: 3%;
     top: 25%;
+    border: none;
+    background: none;
+}
+.sendCommentBtn img{
+    width: 100%;
+    height: 100%;
+}
+.removeCommentBtn {
+    position:absolute;
+    top: 20%;
+    right: 5%;
+}
+
+.removeCommentBtn img{
+    height: 15px;
+}
+.date_time {
+    position:absolute;
+    top: 60%;
+    right: 5%;
 }

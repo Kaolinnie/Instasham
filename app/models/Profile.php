@@ -9,4 +9,25 @@
             $STMT->setFetchMode(\PDO::FETCH_CLASS,'app\models\Profile');
             return $STMT->fetch();
         }
+        public function getProfile($profile_id) {
+            $SQL = "SELECT * FROM profile WHERE profile_id = :profile_id";
+            $STMT = self::$_connection->prepare($SQL);
+            $STMT->execute(['profile_id'=>$profile_id]);
+            $STMT->setFetchMode(\PDO::FETCH_CLASS,'app\models\Profile');
+            return $STMT->fetch();
+        }
+        public function getFollowers() {
+            $SQL = "SELECT * FROM following WHERE profile_id_following = :profile_id";
+            $STMT = self::$_connection->prepare($SQL);
+            $STMT->execute(['profile_id'=>$this->profile_id]);
+            $STMT->setFetchMode(\PDO::FETCH_CLASS,'app\models\Profile');
+            return $STMT->fetchAll();
+        }
+        public function getFollowing() {
+            $SQL = "SELECT * FROM following WHERE profile_id = :profile_id";
+            $STMT = self::$_connection->prepare($SQL);
+            $STMT->execute(['profile_id'=>$this->profile_id]);
+            $STMT->setFetchMode(\PDO::FETCH_CLASS,'app\models\Profile');
+            return $STMT->fetchAll();
+        }
     }

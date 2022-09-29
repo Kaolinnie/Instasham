@@ -4,6 +4,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/app/resources/styles/mainStyles.css">
 <link rel="stylesheet" href="/app/resources/styles/publicationStyles.css">
+<link rel="stylesheet" href="/app/resources/styles/all.css">
 <title>Post</title>
 </head>
 <body>
@@ -14,6 +15,11 @@
                 <img src="/images/publications/<?=$data['publication']->picture?>" alt="">
             </div>
             <div class="commentSide">
+                <div class="captionDiv">
+                    <h6 class="displayName"><?=$data['profile']->display_name?></h6>
+                    <p class="caption"><?=$data['publication']->caption?></p>
+                </div>
+                <hr>
                 <div class="commentsDiv">
                     <?php 
                     if(sizeof($data['comments'])>0){
@@ -24,6 +30,10 @@
                                     <img src='/images/profiles/$commentProfile->profile_pic' class='commentProfile'/>
                                     <h6 class='commentUsername'>$commentProfile->username</h6>
                                     <p class='commentText'>$comment->comment</p>
+                                    <a href='/Publication/removeComment/$comment->comment_id' class='removeCommentBtn'>
+                                        <img src='/app/resources/images/x.png' />
+                                    </a>
+                                    <p class='date_time'>$comment->date_time</p>
                                 </div>
                             ";
                         }
@@ -31,11 +41,16 @@
                     ?>
                 </div>
                 <div class="writeComment">
-                    <form action="postComment" method="post">
+                    <!-- <a href="">
+                        <img src="/app/resources/images/<?php ?>" alt="">
+                    </a> -->
+                    <form action='' method="post">
                         <input type="text" name="writeComment" id="writeComment" placeholder="comment...">
-                        <input type="image" src="/app/resources/images/dm.png" alt="" class="sendCommentBtn">
+                        <button type="submit" name='action' class="sendCommentBtn">
+                            <img src="/app/resources/images/dm.png" alt="" />
+                        </button>
                     </form>
-                    </div>
+                </div>
             </div>
         </div>
     </main>

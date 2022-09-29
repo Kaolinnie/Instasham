@@ -13,7 +13,7 @@
             <img id="profilePic" src="/images/profiles/<?=$data['profile']->profile_pic?>" alt="">
             <div class="rightSideProfile">
                 <div class="layer1">
-                    <h2><?=$data['user']->username?></h2>
+                    <h2><?=$data['profile']->display_name?></h2>
                     <input type="button" value="Edit profile" id="editProfileBtn">
                 </div>
                 <div class="layer2">
