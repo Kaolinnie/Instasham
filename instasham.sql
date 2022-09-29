@@ -16,13 +16,13 @@ USE `instasham`;
 DROP TABLE IF EXISTS `like`;
  CREATE TABLE `like` (
   `publication_id` int(11),
-  `user_id` int(11)
+  `profile_id` int(11)
 );
 
 DROP TABLE IF EXISTS `following`;
  CREATE TABLE `following` (
-  `user_id` int(11),
-  `user_id_following` int(11)
+  `profile_id` int(11),
+  `profile_id_following` int(11)
 );
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
@@ -82,14 +82,14 @@ ALTER TABLE `comment`
   ADD KEY `comment_to_profile` (`profile_id`);
 
 ALTER TABLE `like`
-  ADD PRIMARY KEY (`publication_id`,`user_id`),
+  ADD PRIMARY KEY (`publication_id`,`profile_id`),
   ADD KEY `like_to_publication` (`publication_id`),
-  ADD KEY `like_to_user` (`user_id`);
+  ADD KEY `like_to_profile` (`profile_id`);
 
 ALTER TABLE `following`
-  ADD PRIMARY KEY (`user_id`,`user_id_following`),
-  ADD KEY `following_to_user` (`user_id`),
-  ADD KEY `following_to_user_following` (`user_id_following`);
+  ADD PRIMARY KEY (`profile_id`,`profile_id_following`),
+  ADD KEY `following_to_profile` (`profile_id`),
+  ADD KEY `following_to_profile_following` (`profile_id_following`);
 
 
 --
@@ -122,11 +122,11 @@ ALTER TABLE `comment`
     
 ALTER TABLE `like`
   ADD CONSTRAINT `like_to_publication` FOREIGN KEY (`publication_id`) REFERENCES `publication` (`publication_id`),
-  ADD CONSTRAINT `like_to_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
+  ADD CONSTRAINT `like_to_profile` FOREIGN KEY (`profile_id`) REFERENCES `profile` (`profile_id`);
     
 ALTER TABLE `following`
-  ADD CONSTRAINT `following_to_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
-  ADD CONSTRAINT `following_to_user_following` FOREIGN KEY (`user_id_following`) REFERENCES `user` (`user_id`);
+  ADD CONSTRAINT `following_to_profile` FOREIGN KEY (`profile_id`) REFERENCES `profile` (`profile_id`),
+  ADD CONSTRAINT `following_to_profile_following` FOREIGN KEY (`profile_id_following`) REFERENCES `profile` (`profile_id`);
     
 COMMIT;
 
