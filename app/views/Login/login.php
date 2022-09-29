@@ -6,17 +6,18 @@
     <title>Login</title>
 </head>
 <body>
+    <div class="centerAll">
 <img src="/app/resources/images/instashamLogo.png" alt="logo" id="headerLogo">
     <div class="outsidebox">
-        <form action="/Controllers/verifyUser" method="post">
+        <form action="/Login/verifyUser" method="post">
             <input class="usernameStyle loginInput" name="username" type="text" placeholder="Username"><br>
             <input class="passwordStyle loginInput" name="password" type="password" placeholder="Password">
         </form>
     </div>
     <input type="submit" class="btn btn-primary" id="loginbtn" value="Login" name="loginSubmit"></input>
-    <div class="redirectRegister">Don't have an account? <a href="">Sign up here!</a></div>
+    <div class="redirectRegister">Don't have an account? <a href="/Login/register">Sign up here!</a></div>
     <!-- DISPLAY ERROR MESSAGE -->
-
+    </div>
     <footer>Created by Eris, Jeffrey and Kaolin</footer>
 </body>
 </html>

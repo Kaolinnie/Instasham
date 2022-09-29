@@ -17,4 +17,9 @@ class Controller{
 		}
 		return $filename;
 	}
+
+	public function hashPassword($password){
+		// TODO: HASH LOGIC
+		// RETURN A HASH PASSWORD
+	}
 }

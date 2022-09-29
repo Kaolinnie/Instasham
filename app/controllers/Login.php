@@ -13,7 +13,8 @@ class Login extends \app\core\Controller{
 	public function verifyUser(){
 		// looks for POST 'loginSubmit' request
 		if (isset($_POST['loginSubmit'])){
-			// create a User object
+			echo "login";
+			//create a User object
 			$currentUser = new \app\models\User();
 			$username = $_POST['username'];
 			// TODO: hash the password to match the one store in the DB
@@ -24,7 +25,7 @@ class Login extends \app\core\Controller{
 					// redirect to the profile page
 				} else {
 					// TODO: Display invalid password
-					
+					$this->view("Login/login", "wrong password");
 				}
 			}
 			else{
@@ -32,5 +33,7 @@ class Login extends \app\core\Controller{
 			}
 		}
 	}
+
+	
 
 }
