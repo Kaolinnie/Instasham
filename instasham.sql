@@ -46,11 +46,12 @@ DROP TABLE IF EXISTS `profile`;
 CREATE TABLE `profile` (
   `profile_id` int(11),
   `user_id` int(11) NOT NULL,
+  `display_name` varchar(50),
   `first_name` varchar(50) NOT NULL,
   `middle_name` varchar(50),
   `last_name` varchar(50) NOT NULL,
   `profile_pic` varchar(50),
-  `description` varchar(50)
+  `description` varchar(100)
 );
 
 DROP TABLE IF EXISTS `user`;
@@ -135,9 +136,9 @@ INSERT INTO user(user_id,username,password_hash) VALUES (5,'Kaolinnie','password
 INSERT INTO user(user_id,username,password_hash) VALUES (10,'ErisWhistles','password123');
 INSERT INTO user(user_id,username,password_hash) VALUES (15,'JGrospe','password123');
 
-INSERT INTO profile(profile_id,user_id,first_name,last_name,profile_pic,description) VALUES (5,5,'Kaolin','Stacey','cat.png',"This is Kaolin's profile!");
-INSERT INTO profile(profile_id,user_id,first_name,last_name,profile_pic,description) VALUES (10,10,'Eris','Degani','anonymous.jpg',"This is Eris's profile!");
-INSERT INTO profile(profile_id,user_id,first_name,last_name,profile_pic,description) VALUES (15,15,'Jeffrey','Grospe','anonymous.jpg',"This is Jeffrey's profile!");
+INSERT INTO profile(profile_id,user_id,display_name,first_name,last_name,profile_pic,description) VALUES (5,5,'Kaolinnie','Kaolin','Stacey','cat.png',"This is Kaolin's profile!");
+INSERT INTO profile(profile_id,user_id,display_name,first_name,last_name,profile_pic,description) VALUES (10,10,'ErisWhistles','Eris','Degani','anonymous.jpg',"This is Eris's profile!");
+INSERT INTO profile(profile_id,user_id,display_name,first_name,last_name,profile_pic,description) VALUES (15,15,'JGrospe','Jeffrey','Grospe','anonymous.jpg',"This is Jeffrey's profile!");
 
 INSERT INTO publication(publication_id,profile_id,picture,caption,date_time) VALUES (1,5,'cat2.jpg',"Kibbies are cute",'2022-09-28 15:27:23');
 INSERT INTO publication(publication_id,profile_id,picture,caption,date_time) VALUES (2,5,'cat3.jpg',"This kibby is also very cute",'2022-09-28 15:41:35');
