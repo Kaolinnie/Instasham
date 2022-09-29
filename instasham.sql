@@ -126,3 +126,19 @@ ALTER TABLE `following`
   ADD CONSTRAINT `following_to_user_following` FOREIGN KEY (`user_id_following`) REFERENCES `user` (`user_id`);
     
 COMMIT;
+
+
+
+INSERT INTO user(user_id,username,password_hash) VALUES (5,'Kaolinnie','password123');
+INSERT INTO user(user_id,username,password_hash) VALUES (10,'ErisWhistles','password123');
+INSERT INTO user(user_id,username,password_hash) VALUES (15,'JGrospe','password123');
+
+INSERT INTO profile(profile_id,user_id,first_name,last_name,profile_pic,description) VALUES (5,5,'Kaolin','Stacey','cat.png',"This is Kaolin's profile!");
+INSERT INTO profile(profile_id,user_id,first_name,last_name,profile_pic,description) VALUES (10,10,'Eris','Degani','anonymous.jpg',"This is Eris's profile!");
+INSERT INTO profile(profile_id,user_id,first_name,last_name,profile_pic,description) VALUES (15,15,'Jeffrey','Grospe','anonymous.jpg',"This is Jeffrey's profile!");
+
+INSERT INTO publication(publication_id,profile_id,picture,caption,date_time) VALUES (1,5,'cat2.jpg',"Kibbies are cute",'2022-09-28 15:27:23');
+INSERT INTO publication(publication_id,profile_id,picture,caption,date_time) VALUES (2,5,'cat3.jpg',"This kibby is also very cute",'2022-09-28 15:41:35');
+INSERT INTO publication(publication_id,profile_id,picture,caption,date_time) VALUES (3,10,'eris.jpg',"My name is Eris",'2022-09-28 15:27:23');
+
+INSERT INTO comment(publication_id,profile_id,comment,date_time) VALUES (1,10,"CUTE","2022-09-29 10:06:48");
