@@ -36,7 +36,7 @@
                 foreach($data['publications'] as $post) {
                     echo "
                     <div class='publicationDiv'>
-                        <a href='/Profile/viewPublication/$user_id/$post->publication_id'><img src='/images/publications/$post->picture'></a>
+                        <a href='/Publication/viewPublication/$user_id/$post->publication_id'><img src='/images/publications/$post->picture'></a>
                     </div>
                     ";
                 }

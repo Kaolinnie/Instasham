@@ -25,7 +25,7 @@ body {
     max-height: 50px;
 }
 #headerContainer {
-    width: 50%;
+    width: 75%;
     height: 100%;
     display:flex;
     justify-content: space-evenly;
@@ -41,7 +41,7 @@ body {
 }
 .tabLinks {
     height: 100%;
-    width: 30%;
+    width: 25%;
     display: flex;
     align-items:center;
     justify-content: space-between;
