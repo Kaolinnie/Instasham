@@ -48,7 +48,9 @@ CREATE TABLE `profile` (
   `user_id` int(11) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `middle_name` varchar(50),
-  `last_name` varchar(50) NOT NULL
+  `last_name` varchar(50) NOT NULL,
+  `profile_pic` varchar(50),
+  `description` varchar(100)
 );
 
 DROP TABLE IF EXISTS `user`;

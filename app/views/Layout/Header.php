@@ -7,7 +7,7 @@
         </div>
         <div class="tabLinks">
             <div class="tabLink homeLink">
-                <a href="">
+                <a href="/Main/index/<?=$data->user_id?>">
                     <img src="/app/resources/images/home.png" alt="">
                 </a>
             </div>
@@ -32,8 +32,8 @@
                 </a>
             </div>
             <div class="tabLink profileLink">
-                <a href="">
-                    <img src="/images/cat.png" alt="">
+                <a href="/Profile/index/<?=$data->user_id ?>">
+                    <img src="/images/profiles/<?=$data->profile_pic?>" alt="">
                 </a>
             </div>
         </div>

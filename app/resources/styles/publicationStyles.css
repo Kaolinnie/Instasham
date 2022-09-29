@@ -1,0 +1,14 @@
+.imgSide img {
+    width: auto;
+    height: 100%;
+}
+.publicationDiv {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    left: 10%;
+    right: 10%;
+    top: 10%;
+    bottom: 10%;
+    border: 1px rgb(230, 230, 230) solid;
+}
