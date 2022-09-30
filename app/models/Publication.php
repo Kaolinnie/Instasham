@@ -22,4 +22,13 @@
             $STMT->setFetchMode(\PDO::FETCH_CLASS,'app\models\Publication');
             return $STMT->fetchAll();
         }
+        public function getAllPosts() {
+            $SQL = "SELECT * FROM publication
+                    ORDER BY date_time
+                    LIMIT 15";
+            $STMT = self::$_connection->prepare($SQL);
+            $STMT->execute();
+            $STMT->setFetchMode(\PDO::FETCH_CLASS,'app\models\Publication');
+            return $STMT->fetchAll();
+        }
     }

@@ -6,7 +6,7 @@ main {
 .publicationDiv {
     display: flex;
     width: 75%;
-    max-height: 74%;
+    max-height: 80vh;
     border: 1px rgb(230, 230, 230) solid;
     box-shadow: 0 0 5px #888888;
     overflow:hidden;
@@ -17,7 +17,7 @@ main {
 }
 .imgSide img {
     width: 100%;
-    height: auto;
+    height: max-content;
 }
 .commentSide {
     display: block;
@@ -39,7 +39,7 @@ main {
     position: relative;
     float:left;
     width: 100%;
-    height: 75px;
+    height: 10vh;
     border-bottom: 1px lightgrey solid;
     padding:5px;
 }
@@ -54,6 +54,7 @@ main {
 .commentUsername {
     position: absolute;
     left: 15%;
+    top: 0;
     font-size: 0.8em;
     text-decoration: underline;
 }
@@ -61,23 +62,23 @@ main {
     width: auto;
     position: absolute;
     left: 15%;
-    top: 35%;
+    top: 30%;
     font-size: 0.8em;
     text-overflow:ellipsis;
 }
 .writeComment {
     position: absolute;
     bottom: 0;
-    height: 8%;
+    height: 10vh;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     background-color: white;
     padding-bottom:5px;
     padding-top:5px;
 }
 .writeComment form {
-    width: 99%;
+    width: 85%;
 }
 #writeComment {
     width: 100%;
@@ -93,7 +94,7 @@ main {
     width: 25px;
     height: 25px;
     position: absolute;
-    right: 3%;
+    right: 5%;
     top: 25%;
     border: none;
     background: none;
@@ -115,4 +116,14 @@ main {
     position:absolute;
     top: 60%;
     right: 5%;
+}
+.likeBtn {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.likeBtn img {
+    width: 100%;
+    height: auto;
 }

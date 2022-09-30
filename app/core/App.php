@@ -33,8 +33,8 @@ class App{
 			unset($url[1]);
 		}
 
-		$_SESSION["user_id"] = 10;
-		$_SESSION["profile_id"] = 10;
+		$_SESSION["user_id"] = 5;
+		$_SESSION["profile_id"] = 5;
 
 		//...while passing all other parts as arguments
 		//repackage the parameters

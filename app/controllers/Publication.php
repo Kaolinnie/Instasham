@@ -19,10 +19,14 @@
                 $profile = $profile->getProfileByPost($publication_id);
                 $comments = new \app\models\Comment();
                 $comments = $comments->getAll($publication_id);
+                $like = new \app\models\Like();
+                $like = $like->get($_SESSION["profile_id"],$publication_id);
+                $like_photo = is_null($like)?"heart_full.png":"heart.png";
 
-                $this->view('/Main/publication',["profile"=>$profile,"publication"=>$publication,"comments"=>$comments]);
+                $this->view('/Main/publication',["profile"=>$profile,"publication"=>$publication,"comments"=>$comments,"like"=>$like_photo]);
             }
         }
+        
         public function removeComment($comment_id) {
             $comment = new \app\models\Comment();
             $comment = $comment->get($comment_id);
@@ -32,7 +36,14 @@
             $comment->remove();
             header('location:/Publication/viewPublication/'.$publication->publication_id);
         }
-        public function isLiked($profile_id) {
-            
+        public function like($publication_id) {
+            $like = new \app\models\Like();
+            $like = $like->get($_SESSION["profile_id"],$publication_id);
+
+            if(!is_null($like)) {
+                $like->remove();
+            }
+
+            header('location:/Publication/viewPublication/'.$publication_id);
         }
     }

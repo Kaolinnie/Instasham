@@ -1,0 +1,24 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.publicationsDivision::-webkit-scrollbar {
+    display: none;
+}
+.publicationsDivision {
+    width: 80%;
+    height: 80%;    
+    overflow-y:scroll;
+    scroll-snap-type: y mandatory;
+}
+.publicationDiv {
+    scroll-snap-align:start;
+    width: 100%;
+    height: 100%;
+    background-color: lightblue;
+}
+.publicationDiv img{
+    width: auto;
+    height: 100%;
+}
