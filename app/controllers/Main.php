@@ -8,4 +8,7 @@ class Main extends \app\core\Controller{
 	public function createPost() {
 		$this->view('Layout/CreatePost');
 	}
+	public function register(){
+		$this->view('Login/register');
+	}
 }

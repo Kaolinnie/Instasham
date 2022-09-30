@@ -9,13 +9,19 @@
 <div class="centerAll">
 <img src="/app/resources/images/instashamLogo.png" alt="logo" id="headerLogo">
     <div class="outsidebox">
-        <form action="/Register/registerNewUser" method="post">
+        <form action="/Register/register" method="post">
             <input class="usernameStyle loginInput" name="username" type="text" placeholder="Username"><br>
             <input class="passwordStyle loginInput" name="password" type="password" placeholder="Password"><br>
             <input class="passwordStyle loginInput" name="passwordVerify" type="password" placeholder="Confirm your Password">
+            <!-- DISPLAY ERROR MESSAGE -->
+            <!-- NEED A BETTER STYLING -->
+            <?php if (isset($_GET['error'])){ ?>
+            <div class="" style="color:red;" role="alert"><?= $_GET['error']?></div>
+            <?php }; ?>
+            <input type="submit" class="btn btn-primary" id="loginbtn" value="Register Now" name="registerSubmit"></input>
         </form>
     </div>
-    <input type="submit" class="btn btn-primary" id="loginbtn" value="Register Now" name="registerSubmit"></input>
+    
     <div class="redirectRegister">Already have an account? <a href="/Login/login">Login Here!</a></div>
     <!-- DISPLAY ERROR MESSAGE -->
 </div>
