@@ -2,21 +2,21 @@
     namespace app\controllers;
 
     class Publication extends \app\core\Controller {
-        public function viewPublication($profile_id,$publication_id) {
+        public function viewPublication($publication_id) {
             if(isset($_POST['action']) && $_POST['writeComment']!==""){
                 $comment = new \app\models\Comment();
                 $comment->publication_id = $publication_id;
-                $comment->profile_id = 5;
+                $comment->profile_id = $_SESSION["profile_id"];
                 $comment->comment = $_POST['writeComment'];
                 date_default_timezone_set('Canada/Eastern');
                 $comment->date_time = date("Y-m-d H:i:s");
                 $comment->insert();
-                header('location:/Publication/viewPublication/'.$profile_id.'/'.$publication_id);
+                header('location:/Publication/viewPublication/'.$publication_id);
             } else {
-                $profile = new \app\models\Profile();
-                $profile = $profile->getProfile($profile_id);
                 $publication = new \app\models\Publication();
                 $publication = $publication->get($publication_id);
+                $profile = new \app\models\Profile();
+                $profile = $profile->getProfileByPost($publication_id);
                 $comments = new \app\models\Comment();
                 $comments = $comments->getAll($publication_id);
 
@@ -30,7 +30,7 @@
             $publication = $publication->get($comment->publication_id);
             $profile_id = $publication->getProfileId();
             $comment->remove();
-            header('location:/Publication/viewPublication/'.$profile_id.'/'.$publication->publication_id);
+            header('location:/Publication/viewPublication/'.$publication->publication_id);
         }
         public function isLiked($profile_id) {
             

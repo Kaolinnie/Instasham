@@ -16,6 +16,15 @@
             $STMT->setFetchMode(\PDO::FETCH_CLASS,'app\models\Profile');
             return $STMT->fetch();
         }
+        public function getProfileByPost($publication_id) {
+            $SQL = "SELECT * FROM profile pr
+            JOIN publication pu ON pr.profile_id=pu.profile_id
+            WHERE pu.publication_id = :publication_id";
+            $STMT = self::$_connection->prepare($SQL);
+            $STMT->execute(['publication_id'=>$publication_id]);
+            $STMT->setFetchMode(\PDO::FETCH_CLASS,'app\models\Profile');
+            return $STMT->fetch();
+        }
         public function getFollowers() {
             $SQL = "SELECT * FROM following WHERE profile_id_following = :profile_id";
             $STMT = self::$_connection->prepare($SQL);

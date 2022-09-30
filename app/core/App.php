@@ -9,6 +9,7 @@ class App{
 		//echo $_GET['url'];
 		//TODO: replace this echo with the routing algorithm
 		//goal: separate the url in parts
+		session_start();
 
 		$url = self::parseUrl(); //get the url parsed and returned as an array of URL segment
 		
@@ -32,9 +33,13 @@ class App{
 			unset($url[1]);
 		}
 
+		$_SESSION["user_id"] = 10;
+		$_SESSION["profile_id"] = 10;
+
 		//...while passing all other parts as arguments
 		//repackage the parameters
 		$params = $url ? array_values($url) : [];
+		$params[] = $_SESSION["profile_id"];
 		call_user_func_array([ $this->controller, $this->method ], $params);
 	}
 

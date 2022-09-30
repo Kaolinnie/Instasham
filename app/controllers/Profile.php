@@ -2,9 +2,9 @@
     namespace app\controllers;
 
     class Profile extends \app\core\Controller {
-        public function index($profile_id) {
+        public function index() {
             $profile = new \app\models\Profile();
-            $profile = $profile->getProfile($profile_id);
+            $profile = $profile->get($_SESSION["user_id"]);
             $publications = new \app\models\Publication();
             $publications = $publications->getAll($profile->profile_id);
             $followers = $profile->getFollowers();
