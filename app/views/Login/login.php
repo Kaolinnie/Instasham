@@ -5,18 +5,24 @@
 <link rel="stylesheet" href="/app/resources/styles/login.css">
     <title>Login</title>
 </head>
+
 <body>
+    <div class="centerAll">
 <img src="/app/resources/images/instashamLogo.png" alt="logo" id="headerLogo">
     <div class="outsidebox">
-        <form action="/Controllers/verifyUser" method="post">
+        <form action="/Login/login" method="post">
             <input class="usernameStyle loginInput" name="username" type="text" placeholder="Username"><br>
             <input class="passwordStyle loginInput" name="password" type="password" placeholder="Password">
+            <input type="submit" class="btn btn-primary" id="loginbtn" value="Login" name="loginSubmit"></input>
+             <!-- DISPLAY ERROR MESSAGE -->
+             <!-- NEED A BETTER STYLING -->
+             <?php if (isset($_GET['error'])){ ?>
+            <div class="" style="color:red;" role="alert"><?= $_GET['error']?></div>
+            <?php }; ?>
         </form>
     </div>
-    <input type="submit" class="btn btn-primary" id="loginbtn" value="Login" name="loginSubmit"></input>
-    <div class="redirectRegister">Don't have an account? <a href="">Sign up here!</a></div>
-    <!-- DISPLAY ERROR MESSAGE -->
-
+    <div class="redirectRegister">Don't have an account? <a href="/Main/register">Sign up here!</a></div>
+    </div>
     <footer>Created by Eris, Jeffrey and Kaolin</footer>
 </body>
 </html>

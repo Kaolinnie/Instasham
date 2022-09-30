@@ -2,35 +2,27 @@
 namespace app\controllers;
 
 class Login extends \app\core\Controller{
+
 	public function login(){
-		$this->view('Login/login');
-	}
-
-	public function register(){
-		$this->view('Login/register');
-	}
-
-	public function verifyUser(){
 		// looks for POST 'loginSubmit' request
 		if (isset($_POST['loginSubmit'])){
-			// create a User object
+			//create a User object
 			$currentUser = new \app\models\User();
-			$username = $_POST['username'];
-			// TODO: hash the password to match the one store in the DB
-			$password = $_POST['password'];
-			// This will return false if no row is found
-			if($currentUser->getUserByUsername($username)){
-				if($currentUser->getUserPasswordByPassword($password)){
-					// redirect to the profile page
-				} else {
-					// TODO: Display invalid password
-					
-				}
+			$currentUsername = $_POST['username'];
+			$currentUser = $currentUser->getUserByUsername($currentUsername);
+			if(password_verify($_POST['password'], $currentUser->password_hash)){
+				//correct password provided
+				$_SESSION['username'] = $currentUser->username;
+				$_SESSION['user_id'] = $currentUser->user_id;
+				echo "login success";
+				//header('location:/Profile/profile'); // TODO ADD THE CORRECT PROFILE VIEW URL
+			}else{
+				//incorrect password provided
+				header('location:/Login/login?error=Incorrect username/password combination!');
 			}
-			else{
-				// TODO: Display User does not exists
-			}
+		}else{
+			$this->view('Login/login');
 		}
-	}
 
+	}
 }
