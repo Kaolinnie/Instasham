@@ -10,6 +10,15 @@
 <img src="/app/resources/images/instashamLogo.png" alt="logo" id="headerLogo">
     <div class="outsidebox">
         <form action='' method='post'>
+            <input type="text" class="loginINput" name="display_name" placeholder="Display name"><br>
+            <input type="text" class="loginINput" name="first_name" placeholder="First Name"><br>
+            <input type="text" class="loginINput" name="middle_name" placeholder="Middle Name"><br>
+            <input type="text" class="loginINput" name="last_name" placeholder="Last Name"><br>
+            <label for="">Insert profile pic<input type="file" name="profile_pic" placeholder="Insert profile pic"></label><br>
+            <div>
+            <label for="bio">Description</label><br>
+            <textarea id="bio" name="description" placeholder="Tell us about yourself"></textarea><br>
+            </div>
             <input class="usernameStyle loginInput" name="username" type="text" placeholder="Username"><br>
             <input class="passwordStyle loginInput" name="password" type="password" placeholder="Password"><br>
             <input class="passwordStyle loginInput" name="passwordVerify" type="password" placeholder="Confirm your Password">

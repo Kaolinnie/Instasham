@@ -37,7 +37,9 @@ class User extends \app\core\Controller {
                         $user->username = $_POST['username'];
                         $user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
                         $user->insert();
-                        header('location:/Login/login');
+                        // Populate the Profile table
+                        
+                        header('location:/User/index');
                     }
                 }else {
                     header('location:/User/register?error=Password mismatched');
