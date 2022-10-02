@@ -9,7 +9,7 @@
 <div class="centerAll">
 <img src="/app/resources/images/instashamLogo.png" alt="logo" id="headerLogo">
     <div class="outsidebox">
-        <form action="/Register/register" method="post">
+        <form action='' method='post'>
             <input class="usernameStyle loginInput" name="username" type="text" placeholder="Username"><br>
             <input class="passwordStyle loginInput" name="password" type="password" placeholder="Password"><br>
             <input class="passwordStyle loginInput" name="passwordVerify" type="password" placeholder="Confirm your Password">
@@ -22,7 +22,7 @@
         </form>
     </div>
     
-    <div class="redirectRegister">Already have an account? <a href="/Login/login">Login Here!</a></div>
+    <div class="redirectRegister">Already have an account? <a href="/User/index">Login Here!</a></div>
     <!-- DISPLAY ERROR MESSAGE -->
 </div>
     <footer>Created by Eris, Jeffrey and Kaolin</footer>

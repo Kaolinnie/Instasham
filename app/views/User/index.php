@@ -10,7 +10,7 @@
     <div class="centerAll">
 <img src="/app/resources/images/instashamLogo.png" alt="logo" id="headerLogo">
     <div class="outsidebox">
-        <form action="/Login/login" method="post">
+        <form action="" method="post">
             <input class="usernameStyle loginInput" name="username" type="text" placeholder="Username"><br>
             <input class="passwordStyle loginInput" name="password" type="password" placeholder="Password">
             <input type="submit" class="btn btn-primary" id="loginbtn" value="Login" name="loginSubmit"></input>
@@ -21,7 +21,7 @@
             <?php }; ?>
         </form>
     </div>
-    <div class="redirectRegister">Don't have an account? <a href="/Main/register">Sign up here!</a></div>
+    <div class="redirectRegister">Don't have an account? <a href="/User/register">Sign up here!</a></div>
     </div>
     <footer>Created by Eris, Jeffrey and Kaolin</footer>
 </body>
