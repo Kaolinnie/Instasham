@@ -11,6 +11,13 @@
             return $STMT->fetch();
         }
 
+        public function getUserIdByUsername($username){
+            $SQL = "SELECT user_id FROM user WHERE username LIKE :username";
+            $STMT = self::$_connection->prepare($SQL);
+            $STMT->execute(['username'=>$username]);
+            return $STMT->fetch()['user_id'];
+        }
+
         public function insert(){
             $SQL = "INSERT INTO user(username, password_hash) VALUES (:username, :password_hash )";
             $STMT = self::$_connection->prepare($SQL);
@@ -25,6 +32,5 @@
             $STMT->execute(['password_hash'=>$this->password_hash,
                             'user_id'=>$this->user_id]);
         }
-
      
     }

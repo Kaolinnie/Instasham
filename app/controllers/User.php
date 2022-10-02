@@ -25,7 +25,6 @@ class User extends \app\core\Controller {
 			$this->view('User/index');
 		}
 	}
-
     public function register(){
 		if(isset($_POST['registerSubmit'])){
             if ($_POST['username'] != '' ||$_POST['password'] != '' ){
@@ -38,7 +37,22 @@ class User extends \app\core\Controller {
                         $user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
                         $user->insert();
                         // Populate the Profile table
-                        
+                        // create a profile object
+                        $user_id = $user->getUserIdByUsername($user->username);
+                        $display_name = $_POST['display_name'];
+                        $first_name = $_POST['first_name'];
+                        $middle_name = $_POST['middle_name'];
+                        $last_name = $_POST['last_name'];
+                        $profile_pic = $_FILES['profile_pic'];
+                        // store the photo in app/images
+                        $filename = $this->saveFile($profile_pic);
+                        // debugging
+                        //$array = [  $user_id, $display_name,  $first_name, $middle_name, $last_name, $profile_pic];
+                        //var_dump($array );
+
+                        // then call the profile insert method
+
+                        // Redirect it back to the login
                         header('location:/User/index');
                     }
                 }else {

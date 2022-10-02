@@ -9,7 +9,7 @@
 <div class="centerAll">
 <img src="/app/resources/images/instashamLogo.png" alt="logo" id="headerLogo">
     <div class="outsidebox">
-        <form action='' method='post'>
+        <form action='' method='post'enctype="multipart/form-data" >
             <input type="text" class="loginINput" name="display_name" placeholder="Display name"><br>
             <input type="text" class="loginINput" name="first_name" placeholder="First Name"><br>
             <input type="text" class="loginINput" name="middle_name" placeholder="Middle Name"><br>
