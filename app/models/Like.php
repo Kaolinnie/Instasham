@@ -9,24 +9,21 @@ class Like extends \app\core\Model
         $SQL = "SELECT * FROM `like` WHERE profile_id = :profile_id AND publication_id = :publication_id";
         $STMT = self::$_connection->prepare($SQL);
         $STMT->execute(["profile_id" => $profile_id,"publication_id"=>$publication_id]);
-        $STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Like');
+        $STMT->setFetchMode(\PDO::FETCH_NUM);
         return $STMT->fetch();
     }
     public function insert($profile_id, $publication_id)
     {
-        $SQL = "INSERT INTO `like` VALUES :profile_id, :publication_id";
+        $SQL = "INSERT INTO `like` VALUES (:publication_id,:profile_id)";
         $STMT = self::$_connection->prepare($SQL);
         $STMT->execute(["profile_id" => $profile_id, "publication_id" => $publication_id]);
     }
-    public function remove()
+    public function remove($profile_id, $publication_id)
     {
         $SQL = "DELETE FROM `like` WHERE profile_id = :profile_id AND publication_id = :publication_id";
         $STMT = self::$_connection->prepare($SQL);
-        $STMT->execute(["profile_id" => $this->profile_id, "publication_id" => $this->publication_id]);
+        $STMT->execute(["profile_id" => $profile_id, "publication_id" => $publication_id]);
     }
-
-
-
     
     public function getPublication($publication_id)
     {
@@ -45,15 +42,5 @@ class Like extends \app\core\Model
         return $STMT->fetchAll();
     }
 
-    // public function isLiked($profile_id, $publication_id)
-    // {
-    //     $SQL = "SELECT * FROM `like` WHERE profile_id = :profile_id AND publication_id = :publication_id";
-    //     $STMT = self::$_connection->prepare($SQL);
-    //     $STMT->execute(["profile_id" => $profile_id, "publication_id" => $publication_id]);
-    //     $STMT->setFetchMode(\PDO::FETCH_NUM);
-    //     $num = $STMT->fetch();
-    //     if ($num > 0) return true;
-    //     return false;
-    // }
 
 }

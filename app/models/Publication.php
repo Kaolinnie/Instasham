@@ -31,4 +31,10 @@
             $STMT->setFetchMode(\PDO::FETCH_CLASS,'app\models\Publication');
             return $STMT->fetchAll();
         }
+        public function remove()
+        {
+            $SQL = "DELETE FROM `publication` WHERE publication_id = :publication_id";
+            $STMT = self::$_connection->prepare($SQL);
+            $STMT->execute(["publication_id" => $this->publication_id]);
+        }
     }

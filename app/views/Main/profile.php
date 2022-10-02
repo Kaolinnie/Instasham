@@ -1,23 +1,38 @@
 <html lang="en">
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="/app/resources/styles/mainStyles.css">
+<?php $this->view('Layout/HeadLinks'); ?>
 <link rel="stylesheet" href="/app/resources/styles/profileStyles.css">
+<link rel="stylesheet" href="/app/resources/styles/publicationStyles.css">
 <title>Profile</title>
 </head>
 <body>
-    <?php $this->view('Layout/Header',$data['profile']) ?>
+    <?php $this->view('Layout/Header',$data['userProfile']) ?>
     <main>
         <div class="mainProfile">
             <img id="profilePic" src="/images/profiles/<?=$data['profile']->profile_pic?>" alt="">
             <div class="rightSideProfile">
                 <div class="layer1">
                     <h2><?=$data['profile']->display_name?></h2>
-                    <input type="button" value="Edit profile" id="editProfileBtn">
+                    <?php 
+                        $profile_id = $data['profile']->profile_id;
+                        if($profile_id==$_SESSION["profile_id"]) {
+                            echo "<a href='/Profile/editProfile'><input type='button' value='Edit profile' id='editProfileBtn'></a>";
+                        } else {
+                            $following = new \app\models\Following();
+                            $followCount = $following->get($_SESSION["profile_id"],$profile_id);
+                            if($followCount>0) {
+                                $followValue = "Following";
+                            } else {
+                                $followValue = "Follow";
+                            }
+                            echo "<a href='/Profile/follow/$profile_id'><input type='button' value='$followValue' id='followBtn'></a>";
+                        }
+                    ?>
+                    
+
                 </div>
                 <div class="layer2">
-                    <p><b><?=sizeof($data['publications'])?></b> posts</p>
+                    <p><b><?=sizeof($data['posts'])?></b> posts</p>
                     <p><b><?=sizeof($data['followers'])?></b> followers</p>
                     <p><b><?=sizeof($data['following'])?></b> following</p>
                 </div>
@@ -30,19 +45,19 @@
             </div>
         </div>
         <hr class="solid">
-        <div class="publicationsDiv">
-            <?php 
-                $user_id = $data['profile']->user_id;
-                foreach($data['publications'] as $post) {
-                    echo "
-                    <div class='publicationDiv'>
-                        <a href='/Publication/viewPublication/$post->publication_id'><img src='/images/publications/$post->picture'></a>
-                    </div>
-                    ";
-                }
-            
-            ?>
-        </div>
+        <?php 
+            $this->view('Layout/ProfilePublications',$data["posts"]);
+        ?>
     </main>
+    <?php 
+        $this->view('Layout/Publications_Full',$data["posts"]);
+    ?>
+    <input type="hidden" id="publicationFocus" value="<?php 
+        if(isset($data["publicationFocus"])) {
+            echo $data["publicationFocus"];
+        }
+    ?>">
+    <script src="/app/resources/scripts/jquery-3.6.1.js"></script>
+    <script src="/app/resources/scripts/publication.js"></script>
 </body>
 </html>
