@@ -7,10 +7,11 @@
 </head>
 
 <body>
+
     <div class="centerAll">
 <img src="/app/resources/images/instashamLogo.png" alt="logo" id="headerLogo">
     <div class="outsidebox">
-        <form action="" method="post">
+        <form method="post" action="">
             <input class="usernameStyle loginInput" name="username" type="text" placeholder="Username"><br>
             <input class="passwordStyle loginInput" name="password" type="password" placeholder="Password">
             <input type="submit" class="btn btn-primary" id="loginbtn" value="Login" name="loginSubmit"></input>
