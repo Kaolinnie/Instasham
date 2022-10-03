@@ -66,7 +66,8 @@ DROP TABLE IF EXISTS `user`;
   --
 
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`,`username`);
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `username` (`username`);
 
 ALTER TABLE `profile`
   ADD PRIMARY KEY (`profile_id`),
@@ -129,8 +130,6 @@ ALTER TABLE `following`
   ADD CONSTRAINT `following_to_profile_following` FOREIGN KEY (`profile_id_following`) REFERENCES `profile` (`profile_id`);
     
 COMMIT;
-
-
 
 INSERT INTO user(user_id,username,password_hash) VALUES (5,'Kaolinnie','password123');
 INSERT INTO user(user_id,username,password_hash) VALUES (10,'ErisWhistles','password123');
