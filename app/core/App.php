@@ -35,6 +35,7 @@ class App{
 		//...while passing all other parts as arguments
 		//repackage the parameters
 		$params = $url ? array_values($url) : [];
+		$params[] = $_SESSION["profile_id"];
 		call_user_func_array([ $this->controller, $this->method ], $params);
 	}
 
