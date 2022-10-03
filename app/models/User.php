@@ -10,10 +10,10 @@
             return $STMT->fetch();
         }
         public function getUserIdByUsername($username) {
-            $SQL = "SELECT user_id FROM user WHERE username = :username";
+            $SQL = "SELECT user_id FROM user WHERE username LIKE :username";
             $STMT = self::$_connection->prepare($SQL);
             $STMT->execute(['username'=>$username]);
-            return $STMT->fetch();
+            return $STMT->fetch()['user_id'];
         }
         
         public function getByUsername($username) {
@@ -31,10 +31,10 @@
             return $STMT->fetch();
         }
         public function getProfileId($user_id) {
-            $SQL = "SELECT profile_id FROM profile WHERE user_id = :user_id";
+            $SQL = "SELECT profile_id FROM profile WHERE user_id LIKE :user_id";
             $STMT = self::$_connection->prepare($SQL);
             $STMT->execute(['user_id'=>$user_id]);
-            return $STMT->fetch();
+            return $STMT->fetch()['profile_id'];
         }
 
         public function insert(){

@@ -5,7 +5,7 @@ class Main extends \app\core\Controller{
 
 	public function index(){
         $profile = new \app\models\Profile();
-        $profile = $profile->get($_SESSION["user_id"]);
+        $profile = $profile->get($_SESSION['user_id']);
 		$publications = new \app\models\Publication();
 		$publications = $publications->getAllPosts();
 		$posts = [];
@@ -18,9 +18,7 @@ class Main extends \app\core\Controller{
 			$like_photo = is_null($like)?"heart_full.png":"heart.png";
 			$posts[] = ["publication"=>$post,"profile"=>$postProfile,"comments"=>$comments,"like"=>$like_photo];
 		}
-
-		$this->view('Main/index',["profile"=>$profile,"publications"=>$posts]);
-
+		$this->view('Main/index',["id"=>$_SESSION['user_id'],"profile"=>$profile,"publications"=>$posts]);
 	}
 	public function createPost() {
 		$this->view('Layout/CreatePost');

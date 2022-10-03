@@ -7,7 +7,7 @@
 </head>
 
 <body>
-	<?php $this->view('Layout/Header',$data["profile"]); ?>
+	<?php $this->view('Layout/Header',$data['profile']); ?>
 	<main>
 	<div class="publicationsDivision">
             <?php 
@@ -27,7 +27,6 @@
                     </section>
                     ";
                 }
-            
             ?>
         </div>
 	</main>

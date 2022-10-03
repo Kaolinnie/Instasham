@@ -11,7 +11,7 @@ class User extends \app\core\Controller {
             $passwordInput = $this->validate_input($_POST['password']);
 			$currentUser = $currentUser->getByUsername($currentUsernameInput);
             if (!$currentUser){
-                $this->view('User/index', 'user does not exists!');
+                $this->view('User/index', 'User does not exist!');
                 return;
             }
 			if(password_verify($passwordInput , $currentUser->password_hash)){
@@ -19,14 +19,13 @@ class User extends \app\core\Controller {
 				$_SESSION['username'] = $currentUser->username;
 				$_SESSION['user_id'] = $currentUser->user_id;
 				$_SESSION['profile_id'] = $currentUser->getProfileId($currentUser->user_id);
-				echo "login success";
-				$this->view('/Main/index');
+				header("location:/Main/index");
 			}else{
 				//incorrect password provided
-                $this->view('/User/index', 'Incorrect password combination!');
+                $this->view('User/index', 'Incorrect password combination!');
 			}
 		}else{
-			$this->view('/User/index');
+			$this->view('User/index');
 		}
 	}
     public function register(){
@@ -58,21 +57,12 @@ class User extends \app\core\Controller {
                     $user->insert();
                     // Populate the Profile table
                     // Need to create profile object
-                    $user_id = $user->getUserIdByUsername($user->username)[0];
+                    $user_id = $user->getUserIdByUsername($user->username);
                     $display_name = $this->validate_input($_POST['display_name']);
                     $first_name = $this->validate_input($_POST['first_name']);
                     $middle_name = $this->validate_input($_POST['middle_name']);
                     $last_name = $this->validate_input($_POST['last_name']);
                     $description = $this->validate_input($_POST['description']);
-
-                    //debugging 
-                    echo $user_id;
-                    echo $display_name;
-                    echo $first_name;
-                    echo $middle_name;
-                    echo $last_name;
-                    echo $description;
-                    // Temporary disabling this function until We have a default image to set
                     // when user decided not to insert pic on account creation.
                     if($_FILES["profile_pic"]['size']==0) {
                         $filename = "anonymous.jpg";
@@ -88,10 +78,6 @@ class User extends \app\core\Controller {
                     $profile->profile_pic = $filename;
                     $profile->description = $description;
                     $profile->insert();
-
-                    $profile = $profile->get($user_id);
-
-                    $_SESSION["profile_id"] = $profile->profile_id;
 
                     // Redirect it back to the login
                     header('location:/User/index');
