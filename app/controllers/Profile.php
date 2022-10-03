@@ -79,8 +79,32 @@
             header('location:/Profile/viewProfile/'.$profile_id_following.'/-1');
         }
         public function editProfile() {
-            $profile = new \app\models\Profile();
-            $profile = $profile->get($_SESSION["profile_id"]);
-            $this->view('/Main/editProfile',$profile);
+            if(isset($_POST['action'])) {
+                $profile = new \app\models\Profile();
+                $profile = $profile->getProfile($_SESSION["profile_id"]);
+
+                if($_FILES["profile_pic"]['size']==0) {
+                    $filename = "anonymous.jpg";
+                } else {
+                    unlink("images/profiles/$profile->profile_pic");
+                    $filename = $this->saveProfilePicture($_FILES['profile_pic']);
+                }
+
+                $profile->display_name = $_POST["display_name"];
+                $profile->first_name = $_POST["first_name"];
+                $profile->middle_name = $_POST["middle_name"];
+                $profile->last_name = $_POST["last_name"];
+                $profile->description = $_POST["description"];
+                $profile->profile_pic = $filename;
+
+                $profile->update();
+
+                header('location:/Profile/viewProfile/'.$profile->profile_id.'/-1');
+            } else {
+                $profile = new \app\models\Profile();
+                $profile = $profile->get($_SESSION["profile_id"]);
+                $this->view('/Main/editProfile',$profile);
+            }
+
         }
     }
