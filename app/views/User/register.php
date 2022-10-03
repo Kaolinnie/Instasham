@@ -19,21 +19,23 @@
             <label for="bio">Description</label><br>
             <textarea id="bio" name="description" placeholder="Tell us about yourself"></textarea><br>
             </div>
-            <input class="usernameStyle loginInput" name="username" type="text" placeholder="Username"><br>
-            <input class="passwordStyle loginInput" name="password" type="password" placeholder="Password"><br>
-            <input class="passwordStyle loginInput" name="passwordVerify" type="password" placeholder="Confirm your Password">
-            <!-- DISPLAY ERROR MESSAGE -->
-            <!-- NEED A BETTER STYLING -->
-            <?php if (isset($_GET['error'])){ ?>
-            <div class="" style="color:red;" role="alert"><?= $_GET['error']?></div>
-            <?php }; ?>
+            <!-- username and password  -->
+            <input class="usernameStyle loginInput" name="username" type="text" placeholder="* Username" value="<?php if(isset($_POST['username'])) echo $_POST['username']?>">
+            <br>
+            <span id="nameExists" class="error"><?php if($data) if(isset($data['userExist'])) echo $data['userExist']; ?></span>
+            <span id="errorMsg" class="error"><?php if($data) if(isset($data['username'])) echo $data['username']; ?></span>
+            <input class="passwordStyle loginInput" name="password" type="password" placeholder="* Password">
+            <br>
+            <span id="passwordError" class="error"><?php if($data) if(isset($data['password'])) echo $data['password']; ?></span>
+            <input id="passwordVerify" class="passwordStyle loginInput" name="passwordVerify" type="password" placeholder="Confirm your Password">
+            <span id="misMatched" class="error"><?php if($data) if(isset($data['passwordVerify'])) echo $data['passwordVerify']; ?></span>
+            <br>         
             <input type="submit" class="btn btn-primary" id="loginbtn" value="Register Now" name="registerSubmit"></input>
         </form>
     </div>
-    
     <div class="redirectRegister">Already have an account? <a href="/User/index">Login Here!</a></div>
-    <!-- DISPLAY ERROR MESSAGE -->
 </div>
     <footer>Created by Eris, Jeffrey and Kaolin</footer>
+    <script src="/app/resources/js/script.js"></script>
 </body>
 </html>

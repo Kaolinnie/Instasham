@@ -75,3 +75,8 @@ input {
 input:focus {
     outline:none;
 }
+
+.error{
+    color: red;
+    font-style: italic;
+}
