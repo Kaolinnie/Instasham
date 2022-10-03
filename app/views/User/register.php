@@ -11,16 +11,16 @@
     <div class="outsidebox">
         <form action='' method='post'enctype="multipart/form-data" >
             <input type="text" class="loginINput" name="display_name" placeholder="Display name"><br>
-            <input type="text" class="loginINput" name="first_name" placeholder="First Name"><br>
-            <input type="text" class="loginINput" name="middle_name" placeholder="Middle Name"><br>
-            <input type="text" class="loginINput" name="last_name" placeholder="Last Name"><br>
+            <input type="text" class="loginINput" name="first_name" placeholder="First Name" required><br>
+            <input type="text" class="loginINput" name="middle_name" placeholder="Middle Name" ><br>
+            <input type="text" class="loginINput" name="last_name" placeholder="Last Name" required><br>
             <label for="">Insert profile pic<input type="file" name="profile_pic" placeholder="Insert profile pic"></label><br>
             <div>
             <label for="bio">Description</label><br>
             <textarea id="bio" name="description" placeholder="Tell us about yourself"></textarea><br>
             </div>
             <!-- username and password  -->
-            <input class="usernameStyle loginInput" name="username" type="text" placeholder="* Username" value="<?php if(isset($_POST['username'])) echo $_POST['username']?>">
+            <input class="usernameStyle loginInput" name="username" type="text" required placeholder="* Username" value="<?php if(isset($_POST['username'])) echo $_POST['username']?>">
             <br>
             <span id="nameExists" class="error"><?php if($data) if(isset($data['userExist'])) echo $data['userExist']; ?></span>
             <span id="errorMsg" class="error"><?php if($data) if(isset($data['username'])) echo $data['username']; ?></span>

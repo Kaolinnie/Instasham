@@ -2,7 +2,7 @@
 namespace app\core;
 
 class App{
-	private $controller = 'Main';
+	private $controller = 'User';
 	private $method = 'index';
 
 	public function __construct(){
@@ -35,7 +35,6 @@ class App{
 		//...while passing all other parts as arguments
 		//repackage the parameters
 		$params = $url ? array_values($url) : [];
-		$params[] = $_SESSION["profile_id"];
 		call_user_func_array([ $this->controller, $this->method ], $params);
 	}
 

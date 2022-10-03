@@ -9,6 +9,11 @@
             $STMT->setFetchMode(\PDO::FETCH_CLASS,'app\models\Profile');
             return $STMT->fetch();
         }
+        public function insert() {
+            $SQL = "INSERT INTO profile (profile_id,user_id,display_name,first_name,middle_name,last_name,profile_pic,description) VALUES (:profile_id,:user_id, :display_name,:first_name,:middle_name,:last_name,:profile_pic,:description)";
+            $STMT = self::$_connection->prepare($SQL);
+            $STMT->execute(['profile_id'=>$this->user_id,'user_id'=>$this->user_id, 'display_name'=>$this->display_name,'first_name'=>$this->first_name,'middle_name'=>$this->middle_name,'last_name'=>$this->last_name,'profile_pic'=>$this->profile_pic,'description'=>$this->description]);
+        }
         public function update() {
             $SQL = "UPDATE profile
                     SET display_name = :display_name, first_name = :first_name, middle_name = :middle_name, last_name = :last_name, profile_pic = :profile_pic, description = :description
