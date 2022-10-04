@@ -17,6 +17,7 @@
                         $profile_id = $data['profile']->profile_id;
                         if($profile_id==$_SESSION["profile_id"]) {
                             echo "<a href='/Profile/editProfile'><input type='button' value='Edit profile' id='editProfileBtn'></a>";
+                            echo "<a href='/User/logout' id='logoutBtn'><img src='/app/resources/images/logout.png'/></a>";
                         } else {
                             $following = new \app\models\Following();
                             $followCount = $following->get($_SESSION["profile_id"],$profile_id);
