@@ -3,6 +3,7 @@ namespace app\controllers;
 
 class Main extends \app\core\Controller{
 
+	#[\app\filters\Login]
 	public function index(){
         $profile = new \app\models\Profile();
         $profile = $profile->get($_SESSION['user_id']);
@@ -20,6 +21,7 @@ class Main extends \app\core\Controller{
 		}
 		$this->view('Main/index',["id"=>$_SESSION['user_id'],"profile"=>$profile,"publications"=>$posts]);
 	}
+	#[\app\filters\Login]
 	public function createPost() {
 		$this->view('Layout/CreatePost');
 	}

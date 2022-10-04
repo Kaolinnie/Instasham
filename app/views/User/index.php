@@ -23,6 +23,15 @@
     </div>
     <div class="redirectRegister">Don't have an account? <a href="/User/register">Sign up here!</a></div>
     </div>
+    <?php
+        if(isset($_GET['error'])){
+        ?>
+        <div class="alert alert-danger" role="alert">
+            <?=$_GET['error']?>
+        </div>
+        <?php
+        }
+        ?>
     <footer>Created by Eris, Jeffrey and Kaolin</footer>
     <script src="/app/resources/js/script.js"></script>
 </body>

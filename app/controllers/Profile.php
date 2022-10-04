@@ -2,6 +2,7 @@
     namespace app\controllers;
 
     class Profile extends \app\core\Controller {
+        #[\app\filters\Login]
         public function viewProfile($profile_id,$publicationFocus = 0) {
             $profile = new \app\models\Profile();
             $profile = $profile->get($profile_id);
@@ -34,6 +35,7 @@
             }
         }
 
+        #[\app\filters\Login]
         public function removeComment($comment_id) {
             $comment = new \app\models\Comment();
             $comment = $comment->get($comment_id);
@@ -44,6 +46,8 @@
                 header('location:/Profile/viewProfile/'.$publication->profile_id.'/'.$publication->publication_id);
             }
         }
+
+        #[\app\filters\Login]
         public function like($publication_id) {
             $profile_id = intval($_SESSION["profile_id"]);
             $like = new \app\models\Like();
@@ -59,12 +63,16 @@
 
             header('location:/Profile/viewProfile/'.$publication->profile_id.'/'.$publication_id);
         }
+
+        #[\app\filters\Login]
         public function deletePublication($publication_id) {
             $publication = new \app\models\Publication();
             $publication = $publication->get($publication_id);
             $publication->remove();
             header('location:/Profile/viewProfile/'.$publication->profile_id.'/-1');
         }
+
+        #[\app\filters\Login]
         public function follow($profile_id_following) {
             $profile_id = intval($_SESSION["profile_id"]);
             $following = new \app\models\Following();
@@ -78,6 +86,8 @@
 
             header('location:/Profile/viewProfile/'.$profile_id_following.'/-1');
         }
+
+        #[\app\filters\Login]
         public function editProfile() {
             if(isset($_POST['action'])) {
                 $profile = new \app\models\Profile();
