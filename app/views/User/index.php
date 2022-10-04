@@ -12,7 +12,7 @@
 <img src="/app/resources/images/instashamLogo.png" alt="logo" id="headerLogo">
     <div class="outsidebox">
         <form method="post" action="">
-            <input class="usernameStyle loginInput" name="username" type="text" placeholder="Username" value="<?php if(isset($_POST['username'])) echo $_POST['username'] ?>"></span><br>
+            <input class="usernameStyle loginInput" name="username" type="text" placeholder="Username" required value="<?php if(isset($_POST['username'])) echo $_POST['username'] ?>"></span><br>
             <input class="passwordStyle loginInput" name="password" type="password" placeholder="Password">
             <!-- DISPLAY ERROR MESSAGE -->
             <!-- NEED A BETTER STYLING -->

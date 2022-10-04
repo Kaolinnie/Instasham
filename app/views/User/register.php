@@ -10,7 +10,7 @@
 <img src="/app/resources/images/instashamLogo.png" alt="logo" id="headerLogo">
     <div class="outsidebox">
         <form action='' method='post'enctype="multipart/form-data" >
-            <input type="text" class="loginINput" name="display_name" placeholder="Display name"><br>
+            <input type="text" class="loginINput" name="display_name" placeholder="Display name" ><br>
             <input type="text" class="loginINput" name="first_name" placeholder="First Name" required><br>
             <input type="text" class="loginINput" name="middle_name" placeholder="Middle Name" ><br>
             <input type="text" class="loginINput" name="last_name" placeholder="Last Name" required><br>
@@ -24,7 +24,7 @@
             <br>
             <span id="nameExists" class="error"><?php if($data) if(isset($data['userExist'])) echo $data['userExist']; ?></span>
             <span id="errorMsg" class="error"><?php if($data) if(isset($data['username'])) echo $data['username']; ?></span>
-            <input class="passwordStyle loginInput" name="password" type="password" placeholder="* Password">
+            <input class="passwordStyle loginInput" name="password" type="password" placeholder="* Password" required>
             <br>
             <span id="passwordError" class="error"><?php if($data) if(isset($data['password'])) echo $data['password']; ?></span>
             <input id="passwordVerify" class="passwordStyle loginInput" name="passwordVerify" type="password" placeholder="Confirm your Password">

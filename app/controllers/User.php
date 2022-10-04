@@ -28,6 +28,11 @@ class User extends \app\core\Controller {
 			$this->view('User/index');
 		}
 	}
+
+    public function logout(){
+		session_destroy();
+		header('location:/User/index');
+	}
     public function register(){
 		if(isset($_POST['registerSubmit'])){
             if(empty($_POST['username'])  && empty($_POST['password'])){
