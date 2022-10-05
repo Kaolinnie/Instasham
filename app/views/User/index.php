@@ -25,7 +25,6 @@
     <div class="redirectRegister">Don't have an account? <a href="/User/register">Sign up here!</a></div>
     </div>
     <!--MODEL FOR THE ERROR MSG GOES HERE  -->
-   <!-- Button trigger modal -->
 
 <!-- Modal -->
 <div class="modal fade" id="accessFilterModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -44,10 +43,7 @@
     </div>
   </div>
 </div>
-<div id="test"></div>
-
     <?php
-
         if(isset($_GET['error'])){
         ?>
        <script>
