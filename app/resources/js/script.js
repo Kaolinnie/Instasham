@@ -1,18 +1,18 @@
 function hideMessage() {
-    document.getElementById("errorMsg").style.display = "none";
+    document.getElementById("errorMsg").style.display = "hidden";
         };
 setTimeout(hideMessage, 3000,);
 
 setTimeout(function(){
-    document.getElementById("passwordError").style.display = "none"
-},3000);
+    document.getElementById("passwordError").classList.toggle("hidden");
+},2000);
 
 setTimeout(function(){
-    document.getElementById("misMatched").style.display = "none"
-},3000);
+    document.getElementById("misMatched").classList.toggle("hidden");
+},2000);
 
 setTimeout(function(){
-    document.getElementById("nameExists").style.display = "none"
-},4000);
+    document.getElementById("nameExists").classList.toggle("hidden");
+},2000);
 
 

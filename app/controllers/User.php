@@ -89,7 +89,7 @@ class User extends \app\core\Controller {
                     header('location:/User/index');
                 }
             }else {
-                $errormsg = ['passwordVerify'=>'password did not matched'];
+                $errormsg = ['passwordVerify'=>'Password does not match!'];
                 $this->view('User/register',  $errormsg);
                 return;
             }
