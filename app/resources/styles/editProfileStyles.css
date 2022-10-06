@@ -1,0 +1,78 @@
+form {
+    width: 60%;
+    height: 88%;
+    margin: auto;
+    margin-top: 5vh;
+    display: flex;
+    padding: 10px;
+    box-shadow: 0 0 10px grey;
+}
+.imgSide {
+    padding: 10px;
+    width: 40%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 50%;
+    overflow:hidden;
+}
+#profilePic, #newProfilePic {
+    display: block;
+    margin: auto;
+    width: 80%;
+    height: auto;
+}
+.currentLabel, .newLabel {
+    width: 100%;
+    text-align: center;
+
+}
+
+.rightSideProfile {
+    padding: 10px;
+    display: grid;
+    flex-grow:1;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 80% 20%;
+}
+.rightSideProfile input, .rightSideProfile textarea {
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20px;
+    border: 1px solid grey;
+    outline: none;
+    box-shadow: 1px 1px 5px rgb(105, 105, 105);
+}
+.rightSideProfile textarea {
+    resize: none;
+    width: 80%;
+}
+.inputsDiv input  {
+    height: 35px;
+    width: 80%;
+}
+
+.labelsDiv, .inputsDiv {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+}
+.submitDiv {
+    grid-column: span 2;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+.submitDiv input {
+    width: 25%;
+    height: 40%;
+}
+#description_input {
+    height: 100%;
+}
+#profile_pic_input {
+    display: none;
+}
+#newProfilePic {
+    cursor:pointer;
+}

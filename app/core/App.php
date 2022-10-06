@@ -2,8 +2,8 @@
 namespace app\core;
 
 class App{
-	private $controller = 'Main';
-	private $method = 'CreatePost';
+	private $controller = 'User';
+	private $method = 'index';
 
 	public function __construct(){
 		//echo $_GET['url'];
@@ -30,6 +30,21 @@ class App{
 				$this->method = $url[1];
 			}
 			unset($url[1]);
+		}
+
+		// Access Filter
+		$reflection = new \ReflectionObject($this->controller);
+
+		$classAttributes = $reflection->getAttributes();
+		$methodAttributes = $reflection->getMethod($this->method)->getAttributes();
+		
+		$attributes = array_values(array_merge($classAttributes, $methodAttributes));
+
+		//running the attribute class methods
+		foreach ($attributes as $attribute) {
+			$filter = $attribute->newInstance();//making the object of class, e.g., Login
+			if($filter->execute())
+				return;
 		}
 
 		//...while passing all other parts as arguments

@@ -1,17 +1,40 @@
 <html>
 <head>
 	<title>Instasham Home</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="/app/resources/styles/mainStyles.css">
+    <?php $this->view('Layout/HeadLinks'); ?>
+
+<link rel="stylesheet" href="/app/resources/styles/indexStyles.css">
+<link rel="stylesheet" href="/app/resources/styles/publicationStyles.css">
 </head>
 
 <body>
-	<?php $this->view('Layout/Header'); ?>
+	<?php $this->view('Layout/Header',$data['profile']); ?>
 	<main>
-		/* 
-			add content through php view method depending on the tabLink selected
-		*/
+	<div class="publicationsDivision">
+            <?php 
+                foreach($data['publications'] as $post) {
+                    $publication = $post['publication'];
+                    $profileOfPost = $post['profile'];
+                    echo "
+                    <section class='publicationDiv'>
+                        <div class='imgDiv'><img role='button' onclick='showPublication($publication->publication_id)' src='/images/publications/$publication->picture'></a></div>
+                        <div class='captionDiv'>
+                            <a href='/Profile/viewProfile/$profileOfPost->profile_id/-1'><img src='/images/profiles/$profileOfPost->profile_pic'></a>
+                            <div class='captionContent'>
+                                <a href='/Profile/viewProfile/$profileOfPost->profile_id/-1'><h6 class='displayName'>$profileOfPost->display_name</h6></a>
+                                <p class='caption'>$publication->caption</p>
+                            </div>
+                        </div>
+                    </section>
+                    ";
+                }
+            ?>
+        </div>
 	</main>
+    <?php 
+        $this->view('Layout/Publications_Full',$data["publications"]);
+    ?>
+    <script src="/app/resources/scripts/jquery-3.6.1.js"></script>
+    <script src="/app/resources/scripts/publication.js"></script>
 </body>
 </html>
