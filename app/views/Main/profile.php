@@ -45,7 +45,6 @@
                 </div>
             </div>
         </div>
-        <hr class="solid">
         <?php 
             $this->view('Layout/ProfilePublications',$data["posts"]);
         ?>

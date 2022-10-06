@@ -4,6 +4,7 @@
     <?php $this->view('Layout/HeadLinks'); ?>
 
 <link rel="stylesheet" href="/app/resources/styles/indexStyles.css">
+<link rel="stylesheet" href="/app/resources/styles/publicationStyles.css">
 </head>
 
 <body>
@@ -16,7 +17,7 @@
                     $profileOfPost = $post['profile'];
                     echo "
                     <section class='publicationDiv'>
-                        <img src='/images/publications/$publication->picture'></a>
+                        <div class='imgDiv'><img role='button' onclick='showPublication($publication->publication_id)' src='/images/publications/$publication->picture'></a></div>
                         <div class='captionDiv'>
                             <a href='/Profile/viewProfile/$profileOfPost->profile_id/-1'><img src='/images/profiles/$profileOfPost->profile_pic'></a>
                             <div class='captionContent'>
@@ -30,5 +31,10 @@
             ?>
         </div>
 	</main>
+    <?php 
+        $this->view('Layout/Publications_Full',$data["publications"]);
+    ?>
+    <script src="/app/resources/scripts/jquery-3.6.1.js"></script>
+    <script src="/app/resources/scripts/publication.js"></script>
 </body>
 </html>

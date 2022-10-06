@@ -23,6 +23,7 @@
 .imgSide img {
     height: 80%;
     width: auto;
+    max-width: 700px;
 }
 .captionDiv {
     background-color: #f1f1f1;
