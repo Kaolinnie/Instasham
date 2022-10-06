@@ -77,6 +77,13 @@ input:focus {
 }
 
 .error{
-    color: red;
+    padding: 5px;
+    margin-left: -8px;
+    color: #009578;
     font-style: italic;
+    transition: opacity 0.5s;
+}
+
+.hidden {
+    opacity: 0;
 }

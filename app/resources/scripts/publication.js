@@ -14,6 +14,8 @@ function showPublication(publication_id) {
     $("header").css("pointer-events","none");
     $("main").css("user-select","none");
     $("header").css("user-select","none");
+    $("main").css("overflow","hidden");
+    $("header").css("overflow","hidden");
     $(".publicationSection").removeClass("focusPublicationSection");
     $("#publication_"+publication_id).addClass("focusPublicationSection");
 }
@@ -24,6 +26,8 @@ function exitPublication() {
     $("header").css("pointer-events","all");
     $("main").css("user-select","all");
     $("header").css("user-select","all");
+    $("main").css("overflow","visible");
+    $("header").css("overflow","visible");
     $(".publicationSection").removeClass("focusPublicationSection");
 }
 

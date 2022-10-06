@@ -15,9 +15,9 @@
 
             if(isset($_POST['action']) && $_POST['writeComment']!==""){
                 $comment = new \app\models\Comment();
-                $comment->publication_id = $_POST['publication_id'];
+                $comment->publication_id = $this->validate_input($_POST['publication_id']);
                 $comment->profile_id = $_SESSION["profile_id"];
-                $comment->comment = $_POST['writeComment'];
+                $comment->comment = $this->validate_input($_POST['writeComment']);
                 date_default_timezone_set('Canada/Eastern');
                 $comment->date_time = date("Y-m-d H:i:s");
                 $comment->insert();
@@ -94,17 +94,19 @@
                 $profile = $profile->getProfile($_SESSION["profile_id"]);
 
                 if($_FILES["profile_pic"]['size']==0) {
-                    $filename = "anonymous.jpg";
+                    $filename = "anonymous.png";
                 } else {
-                    unlink("images/profiles/$profile->profile_pic");
+                    if($profile->profile_pic!=="anonymous.png"){
+                        unlink("images/profiles/$profile->profile_pic");
+                    }
                     $filename = $this->saveProfilePicture($_FILES['profile_pic']);
                 }
 
-                $profile->display_name = $_POST["display_name"];
-                $profile->first_name = $_POST["first_name"];
-                $profile->middle_name = $_POST["middle_name"];
-                $profile->last_name = $_POST["last_name"];
-                $profile->description = $_POST["description"];
+                $profile->display_name = $this->validate_input($_POST["display_name"]);
+                $profile->first_name = $this->validate_input($_POST["first_name"]);
+                $profile->middle_name = $this->validate_input($_POST["middle_name"]);
+                $profile->last_name = $this->validate_input($_POST["last_name"]);
+                $profile->description = $this->validate_input($_POST["description"]);
                 $profile->profile_pic = $filename;
 
                 $profile->update();

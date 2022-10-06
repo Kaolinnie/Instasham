@@ -17,25 +17,30 @@ main {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
-    flex-flow:column;
+    justify-content: flex-start;
+    flex-direction:column;
+}
+.imgDiv {
+    width: 100%;
+    min-height: 70%;
+    overflow:hidden;
 }
 .publicationDiv img{
-    width: 100%;
-    height: auto;
+    width: auto;
+    min-width: 100%;
+    height: 100%;
 }
 .captionDiv {
     background-color: #f1f1f1;
     display: flex;
+    height: 100%;
     flex-grow:1;
     width: 100%;
     overflow:auto;
     padding: 10px;
-
 }
 .captionContent {
     height: 100%;
-    flex-grow:1;
     padding-left: 10px;
     overflow:auto;
 }

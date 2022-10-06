@@ -1,3 +1,5 @@
+<hr class="solid">
+
 <div class="publicationsDiv">
     <?php 
         foreach($data as $post) {

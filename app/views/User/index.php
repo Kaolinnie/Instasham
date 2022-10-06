@@ -5,6 +5,7 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/app/resources/styles/login.css">
     <title>Login</title>
+    <script src="/app/resources/js/script.js"></script>
 </head>
 
 <body>
@@ -19,7 +20,6 @@
             <!-- NEED A BETTER STYLING -->
             <div id="errorMsg" class="error"><?php if($data) echo $data?></div>
             <input type="submit" class="btn btn-primary" id="loginbtn" value="Login" name="loginSubmit"></input>
-         
         </form>
     </div>
     <div class="redirectRegister">Don't have an account? <a href="/User/register">Sign up here!</a></div>
@@ -54,6 +54,6 @@
         }
         ?>
     <footer>Created by Eris, Jeffrey and Kaolin</footer>
-    <script src="/app/resources/js/script.js"></script>
+    
 </body>
 </html>
