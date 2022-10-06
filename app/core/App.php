@@ -2,8 +2,8 @@
 namespace app\core;
 
 class App{
-	private $controller = 'Login';
-	private $method = 'index';
+	private $controller = 'Main';
+	private $method = 'CreatePost';
 
 	public function __construct(){
 		//echo $_GET['url'];
