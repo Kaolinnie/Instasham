@@ -61,20 +61,16 @@ class User extends \app\core\Controller {
                     $pass = $this->validate_input($_POST['password']);
                     $user->password_hash = password_hash($pass, PASSWORD_DEFAULT);
                     $user->insert();
-                    // Populate the Profile table
-                    // Need to create profile object
                     $user_id = $user->getUserIdByUsername($user->username);
-                    $display_name = $this->validate_input($_POST['display_name']);
-                    $first_name = $this->validate_input($_POST['first_name']);
-                    $middle_name = $this->validate_input($_POST['middle_name']);
-                    $last_name = $this->validate_input($_POST['last_name']);
-                    $description = $this->validate_input($_POST['description']);
-                    // when user decided not to insert pic on account creation.
-                    if($_FILES["profile_pic"]['size']==0) {
-                        $filename = "anonymous.jpg";
-                    } else {
-                        $filename = $this->saveProfilePicture($_FILES['profile_pic']);
-                    }
+
+                    //create the profile of the user
+                    $display_name = $user->username;
+                    $first_name = "";
+                    $middle_name = "";
+                    $last_name = "";
+                    $description = "";
+                    $filename = "anonymous.jpg";
+
                     $profile = new \app\models\Profile();
                     $profile->user_id = $user_id;
                     $profile->display_name = $display_name;
