@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: rgb(165,165,236);
+    background: linear-gradient(45deg, rgba(165,165,236,1) 50%, rgba(0,212,255,1) 100%);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.wrapInputs {
+    background-color: #ededed;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    height: 75%;
+    border-radius: 5px;
+    padding: 10px;
+    width: 90%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.createPostHeader {
+    width: 100%;
+    height: 50px;
+    top: 0;
+    background-color: #ededed; 
+}
+
+.headerText {
+    padding-top: 12.5px;
+    padding-left: 10;
+}
+
+.closeBtn {
+    float: right;
+}
+
+input {
+    background-color:transparent;
+    border: 0px solid;
+    height: 30px;
+    width: 400px;
+}
+
+input:focus {
+    outline:none;
+}
+
+.ccImage {
+    height: 30px;
+    width: auto;
+}
+
+.inputTitle {
+    position: absolute;
+    height: 30px;
+}
+
+.iconAdd {
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px;
+    height: 40px;
+    width: 100%;
+}
+
+textarea {
+    border: none;
+    outline: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+.descriptionInput {
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+    resize: none;
+}
+
+.labelStyle{
+    text-align: center;
+    margin-top: 25px;
+    color: white;
+    font-size: 16px;
+    background-color: #00bfff;
+    border-radius: 8px;
+    padding: 7px;
+    margin-left: 10%;
+    width: 80%;
+    cursor: pointer;
+}
+
+.centerContent {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+.createPostForm{
+    width: 100%;
+}
+
+.descriptionText{
+    margin-left: 5px;
+    height: auto;
+    padding: 0;
+    margin-top: 15px;
+}
