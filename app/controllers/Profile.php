@@ -94,9 +94,11 @@
                 $profile = $profile->getProfile($_SESSION["profile_id"]);
 
                 if($_FILES["profile_pic"]['size']==0) {
-                    $filename = "anonymous.jpg";
+                    $filename = "anonymous.png";
                 } else {
-                    unlink("images/profiles/$profile->profile_pic");
+                    if($profile->profile_pic!=="anonymous.png"){
+                        unlink("images/profiles/$profile->profile_pic");
+                    }
                     $filename = $this->saveProfilePicture($_FILES['profile_pic']);
                 }
 

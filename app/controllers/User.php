@@ -69,7 +69,7 @@ class User extends \app\core\Controller {
                     $middle_name = "";
                     $last_name = "";
                     $description = "";
-                    $filename = "anonymous.jpg";
+                    $filename = "anonymous.png";
 
                     $profile = new \app\models\Profile();
                     $profile->user_id = $user_id;
