@@ -24,7 +24,7 @@
         }
         public function getAllPosts() {
             $SQL = "SELECT * FROM publication
-                    ORDER BY date_time
+                    ORDER BY date_time DESC
                     LIMIT 15";
             $STMT = self::$_connection->prepare($SQL);
             $STMT->execute();

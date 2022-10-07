@@ -17,17 +17,49 @@ function createPost() {
         data: {},
         success: function(data) {
             $("body").append(data);
+            console.log("creating event")
+
+            // implement submit action for the form
+            $("#createPostForm").on("submit", function(event){publishPost(event)});
+
         }
     });
     $("main").addClass("backgroundFilters");
     $("header").addClass("backgroundFilters");
 }
+
 function exitCreatePost() {
     if(confirm("Discard your changes?")){
         $(".createPostSection").remove();
         $("main").removeClass("backgroundFilters");
         $("header").removeClass("backgroundFilters");
     }
-    // use ajax call to retrieve form data and send to /Publication/publishPost
-    // reference publication.js line 38 for this
 }
+
+function publishPost(event) {
+    var formdata = new FormData();
+    var files = $("#post_picture_input")[0].files;
+    var caption = $('.captionInput').val();
+
+    if(files.length>0) {
+        formdata.append('file',files[0]);
+        formdata.append('caption',caption);
+
+        $.ajax({
+            url: '/Publication/publishPost',
+            type: 'POST',
+            data: formdata,
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                $(".createPostSection").remove();
+                $("main").removeClass("backgroundFilters");
+                $("header").removeClass("backgroundFilters");
+                window.location.href = '/Main/index';
+            } 
+        });
+    } else {
+        alert("Please select a file");
+    }
+    event.preventDefault();
+};

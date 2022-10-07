@@ -1,4 +1,4 @@
-<html>
+<!DOCTYPE html>
 <head>
 	<title>Instasham Home</title>
     <?php $this->view('Layout/HeadLinks'); ?>

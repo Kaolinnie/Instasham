@@ -1,4 +1,4 @@
-<html lang="en">
+<!DOCTYPE html>
 <head>
 <?php $this->view('Layout/HeadLinks'); ?>
 

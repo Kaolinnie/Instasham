@@ -5,11 +5,11 @@
     </div>
     <div class="wrapInputs">
         <div class="centerImage">
-            <label for="post_picture_input">
+            <label for="post_picture_input" class="newPostLabel">
                 <img src="/app/resources/images/image.svg" id="newPostImage">
             </label>
         </div>
-        <form action="" class="createPostForm" method="post" enctype="multipart/form-data">
+        <form action="" id="createPostForm" method="post" enctype="multipart/form-data">
             <div class="captionInputDiv">
                 <img src="/app/resources/images/caption.png" class="ccImage" alt="">
                 <textarea class="captionInput" name="captionInput"></textarea>
