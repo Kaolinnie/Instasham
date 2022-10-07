@@ -44,4 +44,9 @@
                 echo "<img src='/app/resources/images/heart.png' alt='' />";
             }
         }
+
+        #[\app\filters\Login]
+        public function createPost(){
+            $this->view('Layout/CreatePost');
+        }
     }

@@ -16,7 +16,7 @@
             </a>
         </li>
         <li class="tabLink createPostLink">
-            <a href="">
+            <a href="/Publication/createPost">
                 <img src="/app/resources/images/add.png" alt="">
             </a>
         </li>
