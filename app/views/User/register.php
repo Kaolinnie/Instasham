@@ -11,7 +11,6 @@
 <img src="/app/resources/images/instashamLogo.png" alt="logo" id="headerLogo">
     <div class="outsidebox">
         <form action='' method='post'enctype="multipart/form-data">
-            <input type="text" class="loginINput" name="display_name" placeholder="Display name" ><br>
             <div>
             </div>
             <!-- username and password  -->

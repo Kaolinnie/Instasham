@@ -21,6 +21,7 @@ function showPublication(publication_id) {
                 data: {'publication_id' : publication_id},
                 success: function(data) {
                     $(".commentsDiv").append(data);
+                    $(".commentsDiv").scrollTop($(".commentsDiv")[0].scrollHeight);
                 }
             });
             $.ajax({
@@ -64,14 +65,14 @@ function showPublication(publication_id) {
 
         }
     });
-    $("main").addClass("publicationFilters");
-    $("header").addClass("publicationFilters");
+    $("main").addClass("backgroundFilters");
+    $("header").addClass("backgroundFilters");
 }
 
 function exitPublication() {
     $(".publicationSection").remove();
-    $("main").removeClass("publicationFilters");
-    $("header").removeClass("publicationFilters");
+    $("main").removeClass("backgroundFilters");
+    $("header").removeClass("backgroundFilters");
 }
 function confirmDeletion(publication_id,main) {
     if(confirm("Are you sure that you want to delete this post?")) {
@@ -80,25 +81,27 @@ function confirmDeletion(publication_id,main) {
 }
 
 function deleteComment(comment_id) {
-    var publication_id = $("#publication_id").val();
-    $.ajax({
-        url: '/Comment/deleteComment/'+comment_id,
-        type: 'POST',
-        data: { 'comment_id' : comment_id },
-        success: function() {
-            // remove all comments
-            $(".comment").remove();
-            // set up another ajax call to retrieve all the comments 
-            $.ajax({
-                type: 'GET',
-                url: "/Comment/showComments/"+publication_id,
-                data: {'publication_id' : publication_id},
-                success: function(data) {
-                    $(".commentsDiv").append(data);
-                }
-            });
-        }
-    });
+    if(confirm("Delete comment?")) {
+        var publication_id = $("#publication_id").val();
+        $.ajax({
+            url: '/Comment/deleteComment/'+comment_id,
+            type: 'POST',
+            data: { 'comment_id' : comment_id },
+            success: function() {
+                // remove all comments
+                $(".comment").remove();
+                // set up another ajax call to retrieve all the comments 
+                $.ajax({
+                    type: 'GET',
+                    url: "/Comment/showComments/"+publication_id,
+                    data: {'publication_id' : publication_id},
+                    success: function(data) {
+                        $(".commentsDiv").append(data);
+                    }
+                });
+            }
+        });
+    }
 }
 function likePost(publication_id) {
     $.ajax({

@@ -1,118 +1,103 @@
-* {
-    margin: 0;
-    padding: 0;
-}
 
-body{
-    background: rgb(165,165,236);
-    background: linear-gradient(45deg, rgba(165,165,236,1) 50%, rgba(0,212,255,1) 100%);
+.createPostSection {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    height: 80vh;
+    position:fixed;
+    top: 10vh;
+    left: 10vw;
+    border: 1px rgb(230, 230, 230) solid;
+    box-shadow: 0 0 5px #888888;
+    overflow:hidden;
+    background-color: white;
     font-family: 'Times New Roman', Times, serif;
 }
 
+
 .wrapInputs {
+    display: flex;
     background-color: #ededed;
-    margin-top: 40px;
-    margin-left: 40px;
-    margin-right: 40px;
-    height: 75%;
-    border-radius: 5px;
+    height: calc(100% - 5vh);
     padding: 10px;
-    width: 90%;
+    width: 100%;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .createPostHeader {
     width: 100%;
-    height: 50px;
-    top: 0;
+    height: 5vh;
     background-color: #ededed; 
+    padding: 5px;
 }
-
-.headerText {
-    padding-top: 12.5px;
-    padding-left: 10;
-}
-
 .closeBtn {
     float: right;
+    cursor: pointer;
+    height: 100%;
+    width: auto;
 }
 
-input {
+.createPostSection input {
     background-color:transparent;
-    border: 0px solid;
+    box-shadow: 0 0 5px grey;
+    border: none;
     height: 30px;
     width: 400px;
 }
 
-input:focus {
+.createPostSection input:focus {
     outline:none;
 }
 
 .ccImage {
-    height: 30px;
-    width: auto;
-}
-
-.inputTitle {
     position: absolute;
-    height: 30px;
-}
-
-.iconAdd {
-    border-radius: 5px;
-    background-color: white;
-    padding: 5px;
-    height: 40px;
-    width: 100%;
-}
-
-textarea {
-    border: none;
-    outline: none;
-}
-
-textarea:focus {
-    outline: none;
-}
-
-.descriptionInput {
-    padding: 5px;
-    border-radius: 5px;
-    width: 100%;
-    resize: none;
-}
-
-.labelStyle{
-    text-align: center;
-    margin-top: 25px;
-    color: white;
-    font-size: 16px;
-    background-color: #00bfff;
-    border-radius: 8px;
-    padding: 7px;
-    margin-left: 10%;
-    width: 80%;
-    cursor: pointer;
-}
-
-.centerContent {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: 2.5vw;
+    background: transparent;
 }
 .createPostForm{
     padding: 20px;
     width: 50%;
-    margin-right: 20px;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.descriptionText{
-    margin-left: 5px;
-    height: auto;
-    padding: 0;
-    margin-top: 15px;
+.captionInputDiv {
+    position: relative;
+    border-radius: 5px;
+    background-color: white;
+    padding: 5px;
+    height: 90%;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+
 }
+#createPostSubmitButton {
+    width: 20%;
+    height: 4vh;
+    background-color: white;
+}
+.captionInput {
+    font-size: 1.1em;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+    resize: none;
+    height: 100%;
+    text-indent: 2.5vw;
+}
+
+.captionInput:focus {
+    outline: none;
+}
+
 
 .centerImage {
     width: 50%;
@@ -121,7 +106,7 @@ textarea:focus {
     text-align: center;
 }
 
-#newProfilePic {
+#newPostImage {
     width: auto;
     height: 100%;
 }

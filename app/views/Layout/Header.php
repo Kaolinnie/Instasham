@@ -1,6 +1,8 @@
 <header>
-    <img src="/app/resources/images/instashamLogo.png" alt="logo" id="headerLogo">
-    <div class="searchBar">
+    <a href="/Main/index">
+        <img src="/app/resources/images/instashamLogo.png" alt="logo" id="headerLogo">
+    </a>
+        <div class="searchBar">
         <input type="text" name="search_bar" id="search_bar" placeholder="Search">
         <img src="/app/resources/images/clear.png" alt="" class="clearButton">
     </div>
@@ -16,9 +18,7 @@
             </a>
         </li>
         <li class="tabLink createPostLink">
-            <a href="/Publication/createPost">
-                <img src="/app/resources/images/add.png" alt="">
-            </a>
+            <img id="createPostImg" src="/app/resources/images/add.png" onclick="createPost()" alt="">
         </li>
         <li class="tabLink exploreLink">
             <a href="">
@@ -37,3 +37,4 @@
         </li>
     </ul>
 </header>
+<script src="/app/resources/scripts/header.js"></script>

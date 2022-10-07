@@ -14,13 +14,23 @@ main {
 }
 
 #profilePic {
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
+    height: 100%;
+    width: auto;
     float: left;
     margin-right: 70px;
     margin-bottom:50px;
 }
+
+.imgSideDiv {
+    width: 8vw;
+    height: 16vh;
+    background-color: blue;
+    border-radius: 50%;
+    overflow:hidden;
+}
+
+
+
 .rightSideProfile {
     flex-grow:1;
     padding-left: 30px;

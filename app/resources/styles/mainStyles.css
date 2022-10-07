@@ -35,18 +35,19 @@ header {
   justify-content: space-evenly;
 }
 
-.tabLink img {
+header img {
   width: auto;
   height: 100%;
 }
 
-#headerLogo {
-  height: 100%;
-  width: auto;
-}
-
-.profileLink img {
+.profileLink {
   border-radius: 50%;
+  overflow:hidden;
+}
+
+.tabLink {
+  height:100%;
+  aspect-ratio: 1 / 1;
 }
 
 .tabLinks {
@@ -54,7 +55,7 @@ header {
   width: 20%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   list-style-type: none;
 }
 
@@ -83,4 +84,13 @@ header {
   bottom: 0;
   margin: auto;
   opacity: 50%;
+}
+.createPostLink {
+  cursor: pointer;
+}
+.backgroundFilters {
+  filter: blur(13px);
+  pointer-events: none;
+  user-select: none;
+  overflow:hidden;
 }

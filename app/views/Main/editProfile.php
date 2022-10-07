@@ -30,10 +30,10 @@
                     <label for="description">Description</label>
                 </div>
                 <div class="inputsDiv">
-                    <input type="text" name="display_name" value="<?=$data->display_name?>" required maxlength="50">
-                    <input type="text" name="first_name" value="<?=$data->first_name?>" required maxlength="50">
+                    <input type="text" name="display_name" value="<?=$data->display_name?>" maxlength="50">
+                    <input type="text" name="first_name" value="<?=$data->first_name?>" maxlength="50">
                     <input type="text" name="middle_name" value="<?=$data->middle_name?>" placeholder="Optional" maxlength="50">
-                    <input type="text" name="last_name" value="<?=$data->last_name?>" required maxlength="50">                
+                    <input type="text" name="last_name" value="<?=$data->last_name?>" maxlength="50">                
                     <textarea id="description_input" type="textbox" name="description" placeholder="Optional" maxlength="100" rows="4" cols="50"><?=$data->description?></textarea>    
                 </div>
                 <div class="submitDiv">
@@ -44,7 +44,6 @@
             
         </form>
     </main>
-    <script src="/app/resources/scripts/jquery-3.6.1.js"></script>
     <script src="/app/resources/scripts/editProfile.js"></script>
 </body>
 </html>

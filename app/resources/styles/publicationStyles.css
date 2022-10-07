@@ -10,12 +10,6 @@
     overflow:hidden;
     background-color: white;
 }
-.publicationFilters {
-    filter: blur(13px);
-    pointer-events: none;
-    user-select: none;
-    overflow:hidden;
-}
 .imgSide {
     display: flex;
     flex-direction: column;
@@ -71,13 +65,15 @@
     border-bottom: 1px lightgrey solid;
     padding:5px;
 }
+.profileImg {
+    height: 100%;
+    aspect-ratio: 1/1;
+    overflow:hidden;
+    border-radius:50%;
+}
 .commentProfile {
     height: 100%;
     width: auto;
-    border-radius:50%;
-    display: block;
-    float:left;
-    margin-right: 10px;
 }
 .commentUsername {
     position: absolute;
@@ -114,6 +110,8 @@
     border: 1px grey solid;
     border-radius: 5vh;
     padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 #writeComment:focus {
     outline:none;
@@ -132,14 +130,19 @@
     height: 70%;
     margin: auto;
 }
-.removeCommentBtn {
+.commentActions {
+    width: 7%;
+    padding: 5px;
+    float: right;
     position:absolute;
     top: 20%;
     right: 5%;
+    display: flex;
+    justify-content: space-between;
 }
-
-.removeCommentBtn img{
-    height: 15px;
+.commentActions img {
+    height: 20px;
+    aspect-ratio: 1/1;
 }
 .date_time {
     position:absolute;
@@ -147,7 +150,7 @@
     right: 5%;
 }
 .likeBtn {
-    width: 5%;
+    width: 7%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -156,6 +159,7 @@
 .likeBtn img {
     width: 100%;
     height: auto;
+    filter: drop-shadow(0 0 5px rgb(150, 124, 124));
 }
 a, a:hover { 
     color: inherit; 

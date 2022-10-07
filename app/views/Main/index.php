@@ -31,7 +31,6 @@
             ?>
         </div>
 	</main>
-    <script src="/app/resources/scripts/jquery-3.6.1.js"></script>
     <script src="/app/resources/scripts/publication.js"></script>
 </body>
 </html>
