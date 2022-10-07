@@ -49,4 +49,22 @@
         public function createPost(){
             $this->view('Layout/CreatePost');
         }
+
+        #[\app\filters\Login]
+        public function publishPost(){
+            $caption = $this->validate_input($_POST['caption']);
+            date_default_timezone_set('Canada/Eastern');
+            $date_time = date("Y-m-d H:i:s");
+            $profileId = $_SESSION['profile_id'];
+            $file = $_FILES['file'];
+            $filename = $this->savePublicationPicture($file);
+
+            $publication = new \app\models\Publication();
+            $publication->caption = $caption;
+            $publication->date_time = $date_time;
+            $publication->profile_id = $profileId;
+            $publication->picture = $filename;
+
+            $publication->insert();
+        }
     }

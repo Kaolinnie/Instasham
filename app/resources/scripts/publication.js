@@ -145,3 +145,20 @@ function updateComment() {
     });
 
 }
+
+function publishPostImg() {
+    const props = $("#post_picture_input").prop('files');
+    const file = props[0];
+    $.ajax({
+        url: '/Publication/publishPost',
+        type: 'POST',
+        data: {'file': file, 'caption' : $('#caption_input').val()},
+        success: function() {
+            console.log("success");
+        } ,
+        error: function(){
+            console.log("failed");
+        }
+        
+    })
+}
