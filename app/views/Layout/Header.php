@@ -31,7 +31,7 @@
             </a>
         </li>
         <li class="tabLink profileLink">
-            <a href="/Profile/viewProfile/<?=$data->profile_id?>/-1">
+            <a href="/Profile/viewProfile/<?=$data->profile_id?>">
                 <img src="/images/profiles/<?=$data->profile_pic?>" alt="">
             </a>
         </li>

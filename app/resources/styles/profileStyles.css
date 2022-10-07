@@ -37,19 +37,16 @@ main {
     width: 100%;
     align-items: center;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 .layer1 h2 {
     font-weight:lighter;
     text-overflow:ellipsis;
 }
-.layer1_firstInput_div + .display_name_div {
-    flex-grow: 1;
-}
 .logoutBtnDiv {
     flex-grow: 8;
 }
-#editProfileBtn {
+#editProfileBtn, #followBtn {
     background-color: whitesmoke;
     height: 30px;
     border-radius: 5px;
@@ -78,8 +75,8 @@ main {
     padding-bottom: 30px;
     display:grid;
     gap: 1% 1%;
-    grid-template-columns: repeat(auto-fit,400px);
-    grid-auto-rows: 400px;
+    grid-template-columns: repeat(auto-fit,15rem);
+    grid-auto-rows: 15rem;
     justify-content: center;
 }
 #logoutBtn img{

@@ -5,9 +5,9 @@
     <?php 
         $comment = $data["comment"];
         if($comment->profile_id==$_SESSION["profile_id"]) {
-            echo "<a href='/Profile/removeComment/$comment->comment_id' class='removeCommentBtn'>
-            <img src='/app/resources/images/x.png' />
-            </a>";
+            echo "<a type='submit' onclick='deleteComment($comment->comment_id)' class='removeCommentBtn'>
+                    <img src='/app/resources/images/x.png' />
+                </a>";
         }
     ?>
     <p class='date_time'><?=$data["comment"]->date_time?></p>

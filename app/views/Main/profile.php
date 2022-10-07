@@ -45,18 +45,22 @@
                 </div>
             </div>
         </div>
-        <?php 
-            $this->view('Layout/ProfilePublications',$data["posts"]);
-        ?>
+        <hr class="solid">
+
+        <div class="publicationsDiv">
+            <?php 
+                foreach($data["posts"] as $post) {
+                    $publication = $post["publication"];
+                    echo "
+                    <div class='publicationDiv'>
+                        <img role='button' onclick='showPublication($publication->publication_id)' src='/images/publications/$publication->picture'>
+                    </div>
+                    ";
+                }
+            
+            ?>
+        </div>
     </main>
-    <?php 
-        $this->view('Layout/Publications_Full',$data["posts"]);
-    ?>
-    <input type="hidden" id="publicationFocus" value="<?php 
-        if(isset($data["publicationFocus"])) {
-            echo $data["publicationFocus"];
-        }
-    ?>">
     <script src="/app/resources/scripts/jquery-3.6.1.js"></script>
     <script src="/app/resources/scripts/publication.js"></script>
 </body>

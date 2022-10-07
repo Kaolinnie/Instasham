@@ -19,9 +19,9 @@
                     <section class='publicationDiv'>
                         <div class='imgDiv'><img role='button' onclick='showPublication($publication->publication_id)' src='/images/publications/$publication->picture'></a></div>
                         <div class='captionDiv'>
-                            <a href='/Profile/viewProfile/$profileOfPost->profile_id/-1'><img src='/images/profiles/$profileOfPost->profile_pic'></a>
+                            <a href='/Profile/viewProfile/$profileOfPost->profile_id'><img src='/images/profiles/$profileOfPost->profile_pic'></a>
                             <div class='captionContent'>
-                                <a href='/Profile/viewProfile/$profileOfPost->profile_id/-1'><h6 class='displayName'>$profileOfPost->display_name</h6></a>
+                                <a href='/Profile/viewProfile/$profileOfPost->profile_id'><h6 class='displayName'>$profileOfPost->display_name</h6></a>
                                 <p class='caption'>$publication->caption</p>
                             </div>
                         </div>
@@ -31,9 +31,6 @@
             ?>
         </div>
 	</main>
-    <?php 
-        $this->view('Layout/Publications_Full',$data["publications"]);
-    ?>
     <script src="/app/resources/scripts/jquery-3.6.1.js"></script>
     <script src="/app/resources/scripts/publication.js"></script>
 </body>

@@ -1,5 +1,5 @@
 .publicationSection {
-    display: none;
+    display: flex;
     width: 80vw;
     height: 80vh;
     position:fixed;
@@ -10,8 +10,11 @@
     overflow:hidden;
     background-color: white;
 }
-.focusPublicationSection {
-    display: flex;
+.publicationFilters {
+    filter: blur(13px);
+    pointer-events: none;
+    user-select: none;
+    overflow:hidden;
 }
 .imgSide {
     display: flex;
@@ -148,6 +151,7 @@
     height: 100%;
     display: flex;
     align-items: center;
+    cursor:pointer;
 }
 .likeBtn img {
     width: 100%;

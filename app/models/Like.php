@@ -9,7 +9,6 @@ class Like extends \app\core\Model
         $SQL = "SELECT * FROM `like` WHERE profile_id = :profile_id AND publication_id = :publication_id";
         $STMT = self::$_connection->prepare($SQL);
         $STMT->execute(["profile_id" => $profile_id,"publication_id"=>$publication_id]);
-        $STMT->setFetchMode(\PDO::FETCH_NUM);
         return $STMT->fetch();
     }
     public function insert($profile_id, $publication_id)
