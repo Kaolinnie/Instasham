@@ -34,5 +34,20 @@
         }
     ?>
     <input type="hidden" id="publication_id" value="<?=$data['post']->publication_id?>">
-    
-    </section>
+</section>
+<div class="modal fade" id="editComment" tabindex="-1" role="dialog" aria-labelledby="editCommentLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editCommentLabel">Edit comment</h5>
+            </div>
+        <div class="modal-body">
+            <input type="text" name="commentInput" id="commentInput" value="">
+            <input type="hidden" id="hiddenCommentId">
+        </div>
+            <div class="modal-footer">
+                <button id="updateCommentBtn" type="button" class="btn btn-primary" onclick="updateComment()">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

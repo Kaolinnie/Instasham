@@ -1,12 +1,3 @@
-$(document).ready(function() {
-    publicationFocusId = parseInt($("#publicationFocus").val());
-    if(!isNaN(publicationFocusId)) {
-        showPublication(publicationFocusId);
-    }
-});
-
-
-
 function showPublication(publication_id) {
     $.ajax({
         url: '/Publication/viewPost/'+publication_id,
@@ -115,3 +106,42 @@ function likePost(publication_id) {
     });
 }
 
+function editComment(comment_id) {
+    $.ajax({
+        url: '/Comment/editComment/'+comment_id,
+        type: 'GET',
+        data: {},
+        success: function(data) {
+            var commentObj = jQuery.parseJSON(data);
+            $("#commentInput").val(commentObj.comment);
+            $("#commentInput").on('keypress',function(e){
+                if(e.which==13) {
+                    updateComment();
+                }
+            });
+            $("#hiddenCommentId").val(commentObj.comment_id);
+            $("#editComment").modal('show');
+        }
+    });
+}
+
+function updateComment() {
+    $.ajax({
+        url: '/Comment/updateComment/'+ $("#hiddenCommentId").val(),
+        type: 'POST',
+        data: {'comment' : $("#commentInput").val()},
+        success: function() {
+            $("#editComment").modal('hide');
+            $(".comment").remove();
+            $.ajax({
+                type: 'GET',
+                url: "/Comment/showComments/"+$("#publication_id").val(),
+                data: {},
+                success: function(data) {
+                    $(".commentsDiv").append(data);
+                }
+            });
+        }
+    });
+
+}

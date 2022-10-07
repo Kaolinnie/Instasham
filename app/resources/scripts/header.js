@@ -1,4 +1,15 @@
-
+$("#post_picture_input").change(function() {
+    const props = $("#post_picture_input").prop('files');
+    const file = props[0];
+    if (!file) return;
+    // Generate img preview
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      $("#newPostImage").attr("src",reader.result);
+    };
+    return;
+});
 function createPost() {
     $.ajax({
         type: 'GET',

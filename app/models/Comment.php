@@ -36,4 +36,9 @@
             $STMT = self::$_connection->prepare($SQL);
             $STMT->execute(['comment_id'=>$this->comment_id]);
         }
+        public function update() {
+            $SQL = "UPDATE comment SET comment = :comment WHERE comment_id = :comment_id";
+            $STMT = self::$_connection->prepare($SQL);
+            $STMT->execute(['comment'=>$this->comment,'comment_id'=>$this->comment_id]);
+        }
     }
