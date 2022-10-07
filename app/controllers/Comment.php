@@ -26,27 +26,6 @@
             $profile = new \app\models\Profile();
             $profile = $profile->getProfile($comment->profile_id);
         }
-        
-        // #[\app\filters\Login]
-        // public function viewComment($comment_id) {
-        //     $comment = new \app\models\Comment();
-        //     $comment = $comment->get($comment_id);
-        //     $comment_profile = $comment->getProfile();
-
-        //     echo "<div class='comment'>
-        //         <a href='/Profile/viewProfile/$comment_profile->profile_id'><img src='/images/profiles/$comment_profile->profile_pic' class='commentProfile'/></a>
-        //         <a href='/Profile/viewProfile/$comment_profile->profile_id'><h6 class='commentUsername'>$comment_profile->username</h6></a>
-        //         <p class='commentText'>$comment->comment</p>";
-
-        //     if($comment->profile_id==$_SESSION["profile_id"]) {
-        //         echo "<a href='/Publication/deleteComment/$comment->comment_id' type='submit'  class='removeCommentBtn'>
-        //                 <img src='/app/resources/images/x.png' />
-        //             </a>";
-        //     }
-        //     echo "<p class='date_time'>$comment->date_time</p>
-        //     </div>";
-        // }
-
 
         #[\app\filters\Login]
         public function deleteComment($comment_id) {
