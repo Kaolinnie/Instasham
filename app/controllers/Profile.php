@@ -45,13 +45,11 @@
                 $profile = new \app\models\Profile();
                 $profile = $profile->getProfile($_SESSION["profile_id"]);
 
-                if($_FILES["profile_pic"]['size']==0) {
-                    $filename = "anonymous.png";
-                } else {
+                if($_FILES["profile_pic"]['size']!==0) {
                     if($profile->profile_pic!=="anonymous.png"){
                         unlink("images/profiles/$profile->profile_pic");
                     }
-                    $filename = $this->saveProfilePicture($_FILES['profile_pic']);
+                    $profile->profile_pic = $this->saveProfilePicture($_FILES['profile_pic']);
                 }
 
                 $profile->display_name = $this->validate_input($_POST["display_name"]);
@@ -59,7 +57,6 @@
                 $profile->middle_name = $this->validate_input($_POST["middle_name"]);
                 $profile->last_name = $this->validate_input($_POST["last_name"]);
                 $profile->description = $this->validate_input($_POST["description"]);
-                $profile->profile_pic = $filename;
 
                 $profile->update();
 
