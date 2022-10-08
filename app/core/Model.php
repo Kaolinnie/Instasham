@@ -5,7 +5,7 @@ class Model{
 	protected static $_connection;
 
 	public function __construct(){
-		$server = '192.168.3.101';//127.0.0.1
+		$server = 'jodyplex.ddns.net';//127.0.0.1
 		$dbname = 'instasham';
 		$username = 'instasham';
 		$password = 'eCommerceInstashamDB2022!';
