@@ -67,4 +67,13 @@
 
             $publication->insert();
         }
+
+        #[\app\filters\Login]
+        public function updateCaption($publication_id) {
+            $post = new \app\models\Publication();
+            $post = $post->get($publication_id);
+            $post->caption = $this->validate_input($_POST['caption']);
+            $post->updateCaption();
+            echo $publication_id;
+        }
     }

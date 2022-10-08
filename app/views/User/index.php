@@ -5,7 +5,7 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/app/resources/styles/login.css">
     <title>Login</title>
-    <script src="/app/resources/js/script.js"></script>
+    <script src="/app/resources/scripts/script.js"></script>
 </head>
 
 <body>

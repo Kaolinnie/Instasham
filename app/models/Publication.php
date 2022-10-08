@@ -53,4 +53,9 @@
             $STMT = self::$_connection->prepare($SQL);
             $STMT->execute(["profile_id"=>$this->profile_id, "picture"=>$this->picture,"caption"=>$this->caption,"date_time"=>$this->date_time]);
         }
+        public function updateCaption() {
+            $SQL = "UPDATE publication SET caption=:caption WHERE publication_id=:publication_id";
+            $STMT = self::$_connection->prepare($SQL);
+            $STMT->execute(['caption'=>$this->caption,'publication_id'=>$this->publication_id]);
+        }
     }

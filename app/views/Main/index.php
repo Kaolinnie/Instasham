@@ -35,7 +35,7 @@
                             <a href='/Profile/viewProfile/$profileOfPost->profile_id'><img src='/images/profiles/$profileOfPost->profile_pic'></a>
                             <div class='captionContent'>
                                 <a href='/Profile/viewProfile/$profileOfPost->profile_id'><h6 class='displayName'>$profileOfPost->display_name</h6></a>
-                                <p class='caption'>$publication->caption</p>
+                                <p class='caption' id='caption_$publication->publication_id'>$publication->caption</p>
                             </div>
                         </div>
                     </section>

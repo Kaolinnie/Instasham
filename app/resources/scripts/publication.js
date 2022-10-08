@@ -106,42 +106,45 @@ function likePost(publication_id) {
     });
 }
 
-function editComment(comment_id) {
-    $.ajax({
-        url: '/Comment/editComment/'+comment_id,
-        type: 'GET',
-        data: {},
-        success: function(data) {
-            var commentObj = jQuery.parseJSON(data);
-            $("#commentInput").val(commentObj.comment);
-            $("#commentInput").on('keypress',function(e){
-                if(e.which==13) {
-                    updateComment();
+
+
+
+function editPost(publication_id) {
+    $(".postCaption").css("display","none");
+    $(".editCaptionInput").css("display","initial");
+    $(".editCaptionInput").on("keypress",function(e){
+        if(e.which==13) {
+            $.ajax({
+                type: 'POST',
+                url: "/Publication/updateCaption/"+publication_id,
+                data: {'caption':$(".editCaptionInput").val()},
+                success: function(data) {
+                    $(".postCaption").text($(".editCaptionInput").val());
+                    $(".postCaption").css("display","initial");
+                    $(".editCaptionInput").css("display","none");
+                    $("#caption_"+data).text($(".editCaptionInput").val());
                 }
             });
-            $("#hiddenCommentId").val(commentObj.comment_id);
-            $("#editComment").modal('show');
         }
     });
+
 }
 
-function updateComment() {
-    $.ajax({
-        url: '/Comment/updateComment/'+ $("#hiddenCommentId").val(),
-        type: 'POST',
-        data: {'comment' : $("#commentInput").val()},
-        success: function() {
-            $("#editComment").modal('hide');
-            $(".comment").remove();
+function editComment(comment_id) {
+    $(".commentText").css("display","none");
+    $(".editCommentInput").css("display","initial");
+    $(".editCommentInput").on("keypress",function(e){
+        if(e.which==13) {
             $.ajax({
-                type: 'GET',
-                url: "/Comment/showComments/"+$("#publication_id").val(),
-                data: {},
-                success: function(data) {
-                    $(".commentsDiv").append(data);
+                type: 'POST',
+                url: "/Comment/editComment/"+comment_id,
+                data: {'comment':$(".editCommentInput").val()},
+                success: function() {
+                    $(".commentText").text($(".editCommentInput").val());
+                    $(".commentText").css("display","initial");
+                    $(".editCommentInput").css("display","none");
                 }
             });
         }
     });
-
 }
