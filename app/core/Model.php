@@ -5,10 +5,10 @@ class Model{
 	protected static $_connection;
 
 	public function __construct(){
-		$server = 'localhost';//127.0.0.1
+		$server = '192.168.3.101';//127.0.0.1
 		$dbname = 'instasham';
-		$username = 'root';
-		$password = '';
+		$username = 'instasham';
+		$password = 'eCommerceInstashamDB2022!';
 
 		try{
 			self::$_connection = new \PDO("mysql:host=$server;dbname=$dbname",
