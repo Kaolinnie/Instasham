@@ -31,6 +31,17 @@
             $STMT->setFetchMode(\PDO::FETCH_CLASS,'app\models\Publication');
             return $STMT->fetchAll();
         }
+        public function getAllFollowingPosts() {
+            $SQL = "SELECT DISTINCT p.* FROM publication p
+            JOIN `following` f ON f.profile_id_following=p.profile_id 
+            WHERE p.profile_id = :profile_id OR f.profile_id = :profile_id
+            ORDER BY date_time DESC
+            LIMIT 15";
+            $STMT = self::$_connection->prepare($SQL);
+            $STMT->execute(["profile_id"=>$_SESSION['profile_id']]);
+            $STMT->setFetchMode(\PDO::FETCH_CLASS,'app\models\Publication');
+            return $STMT->fetchAll();
+        }
         public function remove()
         {
             $SQL = "DELETE FROM `publication` WHERE publication_id = :publication_id";

@@ -9,6 +9,7 @@
             $STMT->setFetchMode(\PDO::FETCH_CLASS,'app\models\User');
             return $STMT->fetch();
         }
+        
         public function getUserIdByUsername($username) {
             $SQL = "SELECT user_id FROM user WHERE username LIKE :username";
             $STMT = self::$_connection->prepare($SQL);

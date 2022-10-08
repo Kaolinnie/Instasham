@@ -6,7 +6,7 @@
 <title>Profile</title>
 </head>
 <body>
-    <?php $this->view('Layout/Header',$data['userProfile']) ?>
+    <?php $this->view('Layout/Header') ?>
     <main>
         <div class="mainProfile">
             <div class="imgSideDiv">

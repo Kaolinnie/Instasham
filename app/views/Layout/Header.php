@@ -1,3 +1,7 @@
+<?php 
+    $profile = new \app\models\Profile();
+    $profile = $profile->get($_SESSION['profile_id']);
+?>
 <header>
     <a href="/Main/index">
         <img src="/app/resources/images/instashamLogo.png" alt="logo" id="headerLogo">
@@ -13,7 +17,7 @@
             </a>
         </li>
         <li class="tabLink messengerLink">
-            <a href="">
+            <a href="/Message/messages">
                 <img src="/app/resources/images/dm.png" alt="">
             </a>
         </li>
@@ -21,7 +25,7 @@
             <img id="createPostImg" src="/app/resources/images/add.png" onclick="createPost()" alt="">
         </li>
         <li class="tabLink exploreLink">
-            <a href="">
+            <a href="/Main/explore">
                 <img src="/app/resources/images/explore.png" alt="">
             </a>
         </li>
@@ -31,8 +35,8 @@
             </a>
         </li>
         <li class="tabLink profileLink">
-            <a href="/Profile/viewProfile/<?=$data->profile_id?>">
-                <img src="/images/profiles/<?=$data->profile_pic?>" alt="">
+            <a href="/Profile/viewProfile/<?=$profile->profile_id?>">
+                <img src="/images/profiles/<?=$profile->profile_pic?>" alt="">
             </a>
         </li>
     </ul>
