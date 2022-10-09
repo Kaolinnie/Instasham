@@ -14,9 +14,9 @@
             $comments = $comments->getAll($publication_id);
             $like = new \app\models\Like();
             $like = $like->get($profile_id,$publication_id);
-            $like_photo = $like>0?"heart_full.png":"heart.png";
+            $like = $like?true:false;
             
-            $this->view('Layout/Publication',["post"=>$publication,"profile"=>$profile,"comments"=>$comments,"like"=>$like_photo]);
+            $this->view('Layout/Publication',["post"=>$publication,"profile"=>$profile,"comments"=>$comments,"like"=>$like]);
         }
         
 	    #[\app\filters\Login]
@@ -26,10 +26,8 @@
             $count = $like->get($profile_id,$publication_id);
             if($count) {
                 $like->remove($profile_id,$publication_id);
-                echo "<img src='/app/resources/images/heart.png' alt='' />";
             } else {
                 $like->insert($profile_id,$publication_id);
-                echo "<img src='/app/resources/images/heart_full.png' alt='' />";
             }
         }
 	    
@@ -37,11 +35,11 @@
         public function isLiked($publication_id) {
             $profile_id = $_SESSION["profile_id"];
             $like = new \app\models\Like();
-            $count = $like->get($profile_id,$publication_id);
-            if($count) {
-                echo "<img src='/app/resources/images/heart_full.png' alt='' />";
+            $like = $like->get($profile_id,$publication_id);
+            if($like) {
+                echo "t";
             } else {
-                echo "<img src='/app/resources/images/heart.png' alt='' />";
+                echo "f";
             }
         }
 

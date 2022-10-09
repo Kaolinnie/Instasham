@@ -8,7 +8,7 @@
     </a>
         <div class="searchBar">
         <input type="text" name="search_bar" id="search_bar" placeholder="Search">
-        <img src="/app/resources/images/clear.png" alt="" class="clearButton">
+        <img src="/app/resources/images/clear.png" alt="" class="clearButton" onclick="clearSearchBar()">
     </div>
     <ul class="tabLinks">
         <li class="tabLink homeLink">

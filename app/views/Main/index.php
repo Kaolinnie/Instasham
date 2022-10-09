@@ -44,6 +44,5 @@
             ?>
         </div>
 	</main>
-    <script src="/app/resources/scripts/publication.js"></script>
 </body>
 </html>

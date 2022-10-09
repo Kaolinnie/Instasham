@@ -50,18 +50,22 @@
             $profile = $data["profile"];
             if($profile->profile_id==$_SESSION['profile_id']){
                 echo "<div class='navBar'>
-                        <button class='navBarItem navBarButton' onclick='openView(`publications`)'>Posts</button>
-                        <button class='navBarItem navBarButton' onclick='openView(`comments`)'>Comments</button>
+                        <button class='navBarItem publicationsButton active' onclick='openView(`publications`)'>
+                            <img src='/app/resources/images/grid.png' />
+                        </button>
+                        <button class='navBarItem commentsButton' onclick='openView(`comments`)'>
+                            <img src='/app/resources/images/list.png' />
+                        </button>
                       </div>";
+
             }
         ?>
         <div class="publicationsDiv profileView" id="publications">
             <?php 
                 foreach($data["posts"] as $post) {
-                    $publication = $post["publication"];
                     echo "
                     <div class='publicationDiv'>
-                        <img role='button' onclick='showPublication($publication->publication_id)' src='/images/publications/$publication->picture'>
+                        <img role='button' onclick='showPublication($post->publication_id)' src='/images/publications/$post->picture'>
                     </div>
                     ";
                 }
@@ -70,11 +74,16 @@
         </div>
         <?php 
             if($profile->profile_id==$_SESSION['profile_id']){
-                echo "<div class='commentsDiv profileView' id='comments' style='display:none'>";
+                echo "<div class='profileCommentsDiv profileView' id='comments' style='display:none'>";
                 foreach($data["comments"] as $comment) {
                     echo "
-                    <div class='comment'>
-                        </span>$comment->comment</span>
+                    <div class='profileComment' onclick='showPublication($comment->publication_id)'>
+                        <div class='profileImg'>
+                            <img src='/images/profiles/$profile->profile_pic' class='commentProfile'/>
+                        </div>
+                        <h6 class='commentUsername'>$profile->display_name</h6>
+                        <span class='commentText'>$comment->comment</span>
+                        <span class='date_time'>$comment->date_time</span>
                     </div>
                     ";
                 }
@@ -83,6 +92,5 @@
         ?>
     </main>
     <script src="/app/resources/scripts/profile.js"></script>
-    <script src="/app/resources/scripts/publication.js"></script>
 </body>
 </html>

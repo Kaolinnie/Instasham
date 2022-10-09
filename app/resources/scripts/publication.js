@@ -20,10 +20,18 @@ function showPublication(publication_id) {
                 url: "/Publication/isLiked/"+publication_id,
                 data: {'publication_id' : publication_id},
                 success: function(data) {
-                    $(".likeBtn").append(data);
+                    console.log(data);
+
+                    if(data==="t") {
+                        console.log("is liked!");
+                        $(".likeImg").removeClass("notLiked");
+                    } else {
+                        console.log("is not liked!");
+
+                        $(".likeImg").addClass("notLiked");
+                    }
                 }
             });
-
             // set up the write comment form 
 
             $("#writeCommentForm").on("submit",function(event){
@@ -99,9 +107,8 @@ function likePost(publication_id) {
         url: '/Publication/likePost/'+publication_id,
         type: 'GET',
         data: { 'publication_id' : publication_id },
-        success: function(data) {
-            $(".likeBtn").empty();
-            $(".likeBtn").append(data);
+        success: function() {
+            $(".likeImg").toggleClass("notLiked");
         }
     });
 }

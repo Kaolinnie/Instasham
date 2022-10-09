@@ -17,7 +17,7 @@
         </div>
         <div class='writeComment'>
             <a onclick='likePost(<?=$data["post"]->publication_id?>)' class='likeBtn'>
-                
+                <img src="/app/resources/images/heart_full.png" alt="" class='likeImg notLiked'>
             </a>
             <form action='' id='writeCommentForm' method='post'>
                 <input type='text' name='writeComment' id='writeComment' placeholder='comment...'>
@@ -35,7 +35,7 @@
                 echo "<img class='postAction' role='button' onclick='confirmDeletion($post_id)' src='/app/resources/images/delete.png'>";
             }
         ?>
-        <img class='postAction' role='button' src='/app/resources/images/exit.png' alt='' onclick='exitPublication()'>
+        <img class='postAction' role='button' src='/app/resources/images/exit.png' onclick='exitPublication()'>
     </div>
     <input type="hidden" id="publication_id" value="<?=$data['post']->publication_id?>">
 </section>

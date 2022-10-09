@@ -84,6 +84,7 @@ header img {
   bottom: 0;
   margin: auto;
   opacity: 50%;
+  cursor: pointer;
 }
 .createPostLink {
   cursor: pointer;
