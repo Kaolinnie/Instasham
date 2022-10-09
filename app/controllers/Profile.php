@@ -21,9 +21,8 @@
                 $posts[] = ["publication"=>$post,"profile"=>$profile,"comments"=>$comments,"like"=>$like_photo];
             }
             $this->view('Main/profile',['userProfile'=>$userProfile,'profile'=>$profile,"posts"=>$posts,'followers'=>$followers,'following'=>$following]);
-            
         }
-
+        
         #[\app\filters\Login]
         public function follow($profile_id_following) {
             $profile_id = intval($_SESSION["profile_id"]);
@@ -72,16 +71,13 @@
                 $confirm_pass = $this->validate_input($_POST['passwordVerify']);
                 if(password_verify( $old_pass,$user->password_hash)){
                  if( $new_pass ==  $confirm_pass){
-                     //good!
                      $user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
                      $user->updatePassword();
                      header('location:/Profile/editProfile/');
  
-                 } else{
-                    return;
-                 }
+                 } 
                 }else{
-                    header('location:/Profile/editProfile?error="Wrong password"/');
+                    header('location:/Profile/editProfile?error="false"/');
                 }
              }
              else {
