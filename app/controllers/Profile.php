@@ -41,6 +41,7 @@
 
         #[\app\filters\Login]
         public function editProfile() {
+
             if(isset($_POST['action'])) {
                 $profile = new \app\models\Profile();
                 $profile = $profile->getProfile($_SESSION["profile_id"]);
@@ -53,22 +54,40 @@
                     }
                     $filename = $this->saveProfilePicture($_FILES['profile_pic']);
                 }
-
+        
                 $profile->display_name = $this->validate_input($_POST["display_name"]);
                 $profile->first_name = $this->validate_input($_POST["first_name"]);
                 $profile->middle_name = $this->validate_input($_POST["middle_name"]);
                 $profile->last_name = $this->validate_input($_POST["last_name"]);
                 $profile->description = $this->validate_input($_POST["description"]);
                 $profile->profile_pic = $filename;
-
                 $profile->update();
-
                 header('location:/Profile/viewProfile/'.$profile->profile_id);
-            } else {
+
+            } elseif (isset($_POST['changed_password'])){
+                $user = new \app\models\User();
+                $user = $user->get($_SESSION['user_id']);
+                $old_pass = $this->validate_input($_POST['old_password']);
+                $new_pass = $this->validate_input($_POST['password']);
+                $confirm_pass = $this->validate_input($_POST['passwordVerify']);
+                if(password_verify( $old_pass,$user->password_hash)){
+                 if( $new_pass ==  $confirm_pass){
+                     //good!
+                     $user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                     $user->updatePassword();
+                     header('location:/Profile/editProfile/');
+ 
+                 } else{
+                    return;
+                 }
+                }else{
+                    header('location:/Profile/editProfile?error="Wrong password"/');
+                }
+             }
+             else {
                 $profile = new \app\models\Profile();
                 $profile = $profile->get($_SESSION["profile_id"]);
                 $this->view('/Main/editProfile',$profile);
             }
-
         }
     }

@@ -76,3 +76,11 @@ form {
 #newProfilePic {
     cursor:pointer;
 }
+
+
+
+.modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

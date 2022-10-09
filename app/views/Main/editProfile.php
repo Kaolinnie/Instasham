@@ -36,12 +36,13 @@
                     <input type="text" name="last_name" value="<?=$data->last_name?>" maxlength="50">                
                     <textarea id="description_input" type="textbox" name="description" placeholder="Optional" maxlength="100" rows="4" cols="50"><?=$data->description?></textarea>    
                 </div>
+              
                 <div class="submitDiv">
-                    <input name="action" type="submit" value="Update Profile">
-                </div>
-                
-            </div>
-            
+                    <input id="update" name="action" type="submit" value="Update profile">
+                    <input id="changed_password" type="button" value="Change password">
+                </div> 
+            </div>  
+            <?php $this->view('Layout/pwChangedModal')?>
         </form>
     </main>
     <script src="/app/resources/scripts/editProfile.js"></script>

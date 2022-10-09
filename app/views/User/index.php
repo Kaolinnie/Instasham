@@ -16,15 +16,12 @@
         <form method="post" action="">
             <input class="usernameStyle loginInput" name="username" type="text" placeholder="Username" required value="<?php if(isset($_POST['username'])) echo $_POST['username'] ?>"></span><br>
             <input class="passwordStyle loginInput" name="password" type="password" placeholder="Password">
-            <!-- DISPLAY ERROR MESSAGE -->
-            <!-- NEED A BETTER STYLING -->
             <div id="errorMsg" class="error"><?php if($data) echo $data?></div>
             <input type="submit" class="btn btn-primary" id="loginbtn" value="Login" name="loginSubmit"></input>
         </form>
     </div>
     <div class="redirectRegister">Don't have an account? <a href="/User/register">Sign up here!</a></div>
     </div>
-    <!--MODEL FOR THE ERROR MSG GOES HERE  -->
 
 <!-- Modal -->
 <?php $this->view('Layout/accessFilterModal')?>
