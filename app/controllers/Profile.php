@@ -7,6 +7,7 @@
             $profile = new \app\models\Profile();
             $profile = $profile->get($profile_id);
             $userProfile = $profile->get($_SESSION["profile_id"]);
+            $comments = $profile->getAllComments();
             $publications = new \app\models\Publication();
             $publications = $publications->getAll($profile->profile_id);
             $posts = [];
@@ -20,7 +21,7 @@
                 $like_photo = $like>0?"heart_full.png":"heart.png";
                 $posts[] = ["publication"=>$post,"profile"=>$profile,"comments"=>$comments,"like"=>$like_photo];
             }
-            $this->view('Main/profile',['userProfile'=>$userProfile,'profile'=>$profile,"posts"=>$posts,'followers'=>$followers,'following'=>$following]);
+            $this->view('Main/profile',['userProfile'=>$userProfile,'profile'=>$profile,"posts"=>$posts,'followers'=>$followers,'following'=>$following,'comments'=>$comments]);
             
         }
 

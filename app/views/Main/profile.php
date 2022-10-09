@@ -46,8 +46,16 @@
             </div>
         </div>
         <hr class="solid">
-
-        <div class="publicationsDiv">
+        <?php 
+            $profile = $data["profile"];
+            if($profile->profile_id==$_SESSION['profile_id']){
+                echo "<div class='navBar'>
+                        <button class='navBarItem navBarButton' onclick='openView(`publications`)'>Posts</button>
+                        <button class='navBarItem navBarButton' onclick='openView(`comments`)'>Comments</button>
+                      </div>";
+            }
+        ?>
+        <div class="publicationsDiv profileView" id="publications">
             <?php 
                 foreach($data["posts"] as $post) {
                     $publication = $post["publication"];
@@ -60,7 +68,21 @@
             
             ?>
         </div>
+        <?php 
+            if($profile->profile_id==$_SESSION['profile_id']){
+                echo "<div class='commentsDiv profileView' id='comments' style='display:none'>";
+                foreach($data["comments"] as $comment) {
+                    echo "
+                    <div class='comment'>
+                        </span>$comment->comment</span>
+                    </div>
+                    ";
+                }
+                echo "</div>";
+            }
+        ?>
     </main>
+    <script src="/app/resources/scripts/profile.js"></script>
     <script src="/app/resources/scripts/publication.js"></script>
 </body>
 </html>
