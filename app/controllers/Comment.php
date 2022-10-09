@@ -40,15 +40,7 @@
         public function editComment($comment_id) {
             $comment = new \app\models\Comment();
             $comment = $comment->get($comment_id);
-            echo json_encode($comment);
-        }
-        #[\app\filters\Login]
-        public function updateComment($comment_id) {
-            $comment = new \app\models\Comment();
-            $comment = $comment->get($comment_id);
             $comment->comment = $this->validate_input($_POST['comment']);
-            if($comment->profile_id==$_SESSION['profile_id']) {
-                $comment->update();
-            }
+            $comment->update();
         }
     }

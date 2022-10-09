@@ -7,20 +7,14 @@
             $profile = new \app\models\Profile();
             $profile = $profile->get($profile_id);
             $userProfile = $profile->get($_SESSION["profile_id"]);
-            $publications = new \app\models\Publication();
-            $publications = $publications->getAll($profile->profile_id);
-            $posts = [];
+            $comments = $profile->getAllComments();
+            $posts = new \app\models\Publication();
+            $posts = $posts->getAll($profile->profile_id);
             $followers = $profile->getFollowers();
             $following = $profile->getFollowing();
-            foreach($publications AS $post) {
-                $comments = new \app\models\Comment();
-                $comments = $comments->getAll($post->publication_id);
-                $like = new \app\models\Like();
-                $like = $like->get($_SESSION["profile_id"],$post->publication_id);
-                $like_photo = $like>0?"heart_full.png":"heart.png";
-                $posts[] = ["publication"=>$post,"profile"=>$profile,"comments"=>$comments,"like"=>$like_photo];
-            }
-            $this->view('Main/profile',['userProfile'=>$userProfile,'profile'=>$profile,"posts"=>$posts,'followers'=>$followers,'following'=>$following]);
+
+            $this->view('Main/profile',['userProfile'=>$userProfile,'posts'=>$posts,'profile'=>$profile,'followers'=>$followers,'following'=>$following,'comments'=>$comments]);
+            
         }
         
         #[\app\filters\Login]
@@ -45,13 +39,11 @@
                 $profile = new \app\models\Profile();
                 $profile = $profile->getProfile($_SESSION["profile_id"]);
 
-                if($_FILES["profile_pic"]['size']==0) {
-                    $filename = "anonymous.png";
-                } else {
+                if($_FILES["profile_pic"]['size']!==0) {
                     if($profile->profile_pic!=="anonymous.png"){
                         unlink("images/profiles/$profile->profile_pic");
                     }
-                    $filename = $this->saveProfilePicture($_FILES['profile_pic']);
+                    $profile->profile_pic = $this->saveProfilePicture($_FILES['profile_pic']);
                 }
         
                 $profile->display_name = $this->validate_input($_POST["display_name"]);
@@ -59,7 +51,6 @@
                 $profile->middle_name = $this->validate_input($_POST["middle_name"]);
                 $profile->last_name = $this->validate_input($_POST["last_name"]);
                 $profile->description = $this->validate_input($_POST["description"]);
-                $profile->profile_pic = $filename;
                 $profile->update();
                 header('location:/Profile/viewProfile/'.$profile->profile_id);
 

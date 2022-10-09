@@ -63,3 +63,6 @@ function publishPost(event) {
     }
     event.preventDefault();
 };
+function clearSearchBar() {
+    $("#search_bar").val("");
+}

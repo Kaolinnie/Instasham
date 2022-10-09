@@ -5,7 +5,7 @@
 <title>Edit Profile</title>
 </head>
 <body>
-    <?php $this->view('Layout/Header',$data); ?>
+    <?php $this->view('Layout/Header'); ?>
     <main>
         <form action="" method="post" enctype="multipart/form-data">
             <div class="imgSide">

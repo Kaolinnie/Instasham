@@ -20,10 +20,18 @@ function showPublication(publication_id) {
                 url: "/Publication/isLiked/"+publication_id,
                 data: {'publication_id' : publication_id},
                 success: function(data) {
-                    $(".likeBtn").append(data);
+                    console.log(data);
+
+                    if(data==="t") {
+                        console.log("is liked!");
+                        $(".likeImg").removeClass("notLiked");
+                    } else {
+                        console.log("is not liked!");
+
+                        $(".likeImg").addClass("notLiked");
+                    }
                 }
             });
-
             // set up the write comment form 
 
             $("#writeCommentForm").on("submit",function(event){
@@ -99,49 +107,51 @@ function likePost(publication_id) {
         url: '/Publication/likePost/'+publication_id,
         type: 'GET',
         data: { 'publication_id' : publication_id },
-        success: function(data) {
-            $(".likeBtn").empty();
-            $(".likeBtn").append(data);
+        success: function() {
+            $(".likeImg").toggleClass("notLiked");
         }
     });
+}
+
+
+
+
+function editPost(publication_id) {
+    $(".postCaption").css("display","none");
+    $(".editCaptionInput").css("display","initial");
+    $(".editCaptionInput").on("keypress",function(e){
+        if(e.which==13) {
+            $.ajax({
+                type: 'POST',
+                url: "/Publication/updateCaption/"+publication_id,
+                data: {'caption':$(".editCaptionInput").val()},
+                success: function(data) {
+                    $(".postCaption").text($(".editCaptionInput").val());
+                    $(".postCaption").css("display","initial");
+                    $(".editCaptionInput").css("display","none");
+                    $("#caption_"+data).text($(".editCaptionInput").val());
+                }
+            });
+        }
+    });
+
 }
 
 function editComment(comment_id) {
-    $.ajax({
-        url: '/Comment/editComment/'+comment_id,
-        type: 'GET',
-        data: {},
-        success: function(data) {
-            var commentObj = jQuery.parseJSON(data);
-            $("#commentInput").val(commentObj.comment);
-            $("#commentInput").on('keypress',function(e){
-                if(e.which==13) {
-                    updateComment();
-                }
-            });
-            $("#hiddenCommentId").val(commentObj.comment_id);
-            $("#editComment").modal('show');
-        }
-    });
-}
-
-function updateComment() {
-    $.ajax({
-        url: '/Comment/updateComment/'+ $("#hiddenCommentId").val(),
-        type: 'POST',
-        data: {'comment' : $("#commentInput").val()},
-        success: function() {
-            $("#editComment").modal('hide');
-            $(".comment").remove();
+    $(".commentText").css("display","none");
+    $(".editCommentInput").css("display","initial");
+    $(".editCommentInput").on("keypress",function(e){
+        if(e.which==13) {
             $.ajax({
-                type: 'GET',
-                url: "/Comment/showComments/"+$("#publication_id").val(),
-                data: {},
-                success: function(data) {
-                    $(".commentsDiv").append(data);
+                type: 'POST',
+                url: "/Comment/editComment/"+comment_id,
+                data: {'comment':$(".editCommentInput").val()},
+                success: function() {
+                    $(".commentText").text($(".editCommentInput").val());
+                    $(".commentText").css("display","initial");
+                    $(".editCommentInput").css("display","none");
                 }
             });
         }
     });
-
 }

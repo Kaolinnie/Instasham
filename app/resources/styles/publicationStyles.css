@@ -22,6 +22,12 @@
     width: auto;
     max-width: 700px;
 }
+
+img.likeImg.notLiked {
+    filter: grayscale(100%);
+}
+
+
 .captionDiv {
     background-color: #f1f1f1;
     display: flex;
@@ -31,6 +37,11 @@
     overflow:auto;
     padding: 10px;
 
+}
+.editCaptionInput {
+    width: 100%;
+    height: 75%;
+    resize: none;
 }
 .captionContent {
     height: 100%;
@@ -82,13 +93,16 @@
     font-size: 0.8em;
     text-decoration: underline;
 }
-.commentText {
+.commentText, .editCommentInput {
     width: auto;
     position: absolute;
     left: 15%;
     top: 30%;
     font-size: 0.8em;
     text-overflow:ellipsis;
+}
+.editCommentInput {
+    width: 70%;
 }
 .writeComment {
     position: absolute;
@@ -165,20 +179,20 @@ a, a:hover {
     color: inherit; 
     text-decoration: inherit;
 }
-
-.exitPublicationBtn {
-    width: auto;
-    height: 3vh;
+.buttons {
+    width: 10vw;
+    height: 4vh;
     position: absolute;
-    right: 0.5vw;
     top: 1vh;
+    right: 1vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
-.deletePublicationBtn {
+.postAction {
+    height: 100%;
     width: auto;
-    height: 3vh;
-    position: absolute;
-    right: 3vw;
-    top: 1vh;
+    margin: 0.5vw;
 }
 #commentInput, #commentInput:focus {
     outline: none;
@@ -187,7 +201,4 @@ a, a:hover {
 #commentInput {
     width: 100%;
     height: 100%;
-}
-.modal-body {
-    height: 10vh;
 }

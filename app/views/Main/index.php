@@ -8,9 +8,22 @@
 </head>
 
 <body>
-	<?php $this->view('Layout/Header',$data['profile']); ?>
+	<?php $this->view('Layout/Header'); ?>
 	<main>
-	<div class="publicationsDivision">
+        <div class="profilesDiv">
+        <?php 
+                foreach($data['profiles'] as $p) {
+                    $profile_id = $p->profile_id;
+                    $profile_pic = $p->profile_pic;
+                    echo "
+                    <div class='profileDiv'>
+                        <a href='/Profile/viewProfile/$profile_id'><img src='/images/profiles/$profile_pic'></a>
+                    </div>
+                    ";
+                }
+            ?>
+        </div>
+	    <div class="publicationsDivision">
             <?php 
                 foreach($data['publications'] as $post) {
                     $publication = $post['publication'];
@@ -22,7 +35,7 @@
                             <a href='/Profile/viewProfile/$profileOfPost->profile_id'><img src='/images/profiles/$profileOfPost->profile_pic'></a>
                             <div class='captionContent'>
                                 <a href='/Profile/viewProfile/$profileOfPost->profile_id'><h6 class='displayName'>$profileOfPost->display_name</h6></a>
-                                <p class='caption'>$publication->caption</p>
+                                <p class='caption' id='caption_$publication->publication_id'>$publication->caption</p>
                             </div>
                         </div>
                     </section>
@@ -31,6 +44,5 @@
             ?>
         </div>
 	</main>
-    <script src="/app/resources/scripts/publication.js"></script>
 </body>
 </html>

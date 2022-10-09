@@ -9,6 +9,21 @@
             $STMT->setFetchMode(\PDO::FETCH_CLASS,'app\models\Profile');
             return $STMT->fetch();
         }
+        public function getAll($profile_id) {
+            $SQL = "SELECT *, (SELECT COUNT(*) FROM `following` WHERE (profile_id=:profile_id AND profile_id_following=p.profile_id)) AS `isFollowing` FROM profile p
+                    ORDER BY `isFollowing` DESC;";
+            $STMT = self::$_connection->prepare($SQL);
+            $STMT->execute(['profile_id'=>$profile_id]);
+            $STMT->setFetchMode(\PDO::FETCH_CLASS,'app\models\Profile');
+            return $STMT->fetchALL();
+        }
+        public function getAllComments() {
+            $SQL = "SELECT * FROM comment WHERE profile_id=:profile_id ORDER BY date_time DESC";
+            $STMT = self::$_connection->prepare($SQL);
+            $STMT->execute(['profile_id'=>$this->profile_id]);
+            $STMT->setFetchMode(\PDO::FETCH_CLASS,'app\models\Comment');
+            return $STMT->fetchALL();
+        }
         public function insert() {
             $SQL = "INSERT INTO profile (profile_id,user_id,display_name,first_name,middle_name,last_name,profile_pic,description) VALUES (:profile_id,:user_id, :display_name,:first_name,:middle_name,:last_name,:profile_pic,:description)";
             $STMT = self::$_connection->prepare($SQL);

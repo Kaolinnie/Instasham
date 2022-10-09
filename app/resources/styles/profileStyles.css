@@ -1,9 +1,11 @@
-
 main {
-    width: 70%;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
+    overflow: hidden;
 }
+
+/* top of profile */
 .mainProfile {
     padding-top: 25px;
     width: 100%;
@@ -12,7 +14,6 @@ main {
     grid-template-rows: 100%;
     grid-template-columns: 20% 80%;
 }
-
 #profilePic {
     height: 100%;
     width: auto;
@@ -20,17 +21,12 @@ main {
     margin-right: 70px;
     margin-bottom:50px;
 }
-
 .imgSideDiv {
-    width: 8vw;
+    aspect-ratio: 1/1;
     height: 16vh;
-    background-color: blue;
     border-radius: 50%;
     overflow:hidden;
 }
-
-
-
 .rightSideProfile {
     flex-grow:1;
     padding-left: 30px;
@@ -66,11 +62,50 @@ main {
     padding-right: 4px;
 }
 
-.postButton {
-    border: none;
+
+
+
+
+
+/* tab content */
+
+/* nav bar */
+.navBar {
+    width: 20%;
+    height: 5vh;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+.navBarItem {
+    opacity: 0.5;
     outline: none;
+    border: none;
+    filter: drop-shadow(5px 5px 5px rgb(102, 102, 102));
+    transform: scale(0.8);
+    transition: all 0.3s;
+}
+.navBarItem.active {
+    opacity: 1;
+    transform: scale(1);
+
+}
+.navBarItem img {
+    height: 100%;
+    aspect-ratio: 1/1;
 }
 
+
+
+.profileView {
+    overflow-y:auto;
+}
+.profileView::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* publications */
 .publicationDiv {
     overflow: hidden;
     width: 100%;
@@ -85,12 +120,61 @@ main {
     padding-bottom: 30px;
     display:grid;
     gap: 1% 1%;
-    grid-template-columns: repeat(auto-fit,15rem);
+    grid-template-columns: repeat(3,15rem);
     grid-auto-rows: 15rem;
     justify-content: center;
 }
+
 #logoutBtn img{
     width: 50px;
     height: 50px;
     float: right;
+}
+
+
+
+
+/* comments */
+.profileCommentsDiv {
+    display: flex;
+    flex-direction: column;
+    overflow-y:auto;
+    height:100%;
+    width: 80%;
+    margin: auto;
+    padding-top: 5vh;
+}
+.profileComment {
+    position: relative;
+    width: 100%;
+    height: 8vh;
+    cursor: pointer;
+    border-bottom: 1px lightgrey solid;
+    padding:5px;
+}
+.profileImg {
+    height: 100%;
+    aspect-ratio: 1/1;
+    overflow:hidden;
+    border-radius:50%;
+}
+
+.commentProfile {
+    height: 100%;
+    width: auto;
+}
+.commentUsername {
+    position: absolute;
+    left: 15%;
+    top: 0;
+    font-size: 0.8em;
+    text-decoration: underline;
+}
+.commentText {
+    width: auto;
+    position: absolute;
+    left: 15%;
+    top: 30%;
+    font-size: 0.8em;
+    text-overflow:ellipsis;
 }
