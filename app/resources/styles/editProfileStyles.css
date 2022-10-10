@@ -60,13 +60,18 @@ form {
 .submitDiv {
     grid-column: span 2;
     display: flex;
-    justify-content:center;
+    justify-content: end;
     align-items:center;
 }
 .submitDiv input {
     width: 25%;
     height: 40%;
 }
+#changed_password{
+    margin-left: 30px;
+    margin-right: 90px;
+}
+
 #description_input {
     height: 100%;
 }
@@ -77,10 +82,19 @@ form {
     cursor:pointer;
 }
 
-
-
 .modal-content {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.modal-body input{
+    width: 100%;
+    padding: 4px;
+    text-indent: 10px;
+    border-radius: 20px;
+    border: 1px solid grey;
+    outline: none;
+    box-shadow: 1px 1px 5px rgb(105, 105, 105);
+}
+

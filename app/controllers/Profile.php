@@ -64,11 +64,11 @@
                  if( $new_pass ==  $confirm_pass){
                      $user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
                      $user->updatePassword();
-                     header('location:/Profile/editProfile/');
+                     header('location:/Profile/editProfile');
  
                  } 
                 }else{
-                    header('location:/Profile/editProfile?error="false"/');
+                    header('location:/Profile/editProfile?error="false"');
                 }
              }
              else {

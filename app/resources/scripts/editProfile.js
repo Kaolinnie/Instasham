@@ -36,17 +36,16 @@ hideModal.addEventListener('click', function(){
   let filterAccessModal = new bootstrap.Modal(document.getElementById('accessFilterModel'), {});
   let password = document.getElementById('password');
   let confirm_pass = document.getElementById('passwordVerify')
-  if (not_valid ){
-    console.log(not_valid);
-    if( password.value !='' && confirm_pass.value != ''){
+  if (not_valid === false){
     if(password.value == confirm_pass.value ){
       alert('password updated');
       btn.setAttribute("type","submit");
+      not_valid = true;
     }else{
       btn.setAttribute("type","button");
       document.getElementById('error').textContent = 'Password does not match!'
     }
-  }
+  
   }else{
     alert("You've entered a wrong password");
   }
