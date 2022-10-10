@@ -9,9 +9,7 @@
     <?php $this->view('Layout/Header') ?>
     <main>
         <div class="mainProfile">
-            <div class="imgSideDiv">
-                <img id="profilePic" src="/images/profiles/<?=$data['profile']->profile_pic?>" alt="">
-            </div>
+            <img id="profilePic" src="/images/profiles/<?=$data['profile']->profile_pic?>" alt="">
             <div class="rightSideProfile">
                 <div class="layer1">
                     <div class="display_name_div"><h2><?=$data['profile']->display_name?></h2></div>

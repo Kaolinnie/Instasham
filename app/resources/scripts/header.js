@@ -66,3 +66,6 @@ function publishPost(event) {
 function clearSearchBar() {
     $("#search_bar").val("");
 }
+function showNotifications() {
+    console.log("no notifications");
+}

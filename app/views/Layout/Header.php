@@ -30,9 +30,7 @@
             </a>
         </li>
         <li class="tabLink notificationsLink">
-            <a href="">
-                <img src="/app/resources/images/heart.png" alt="">
-            </a>
+            <img src="/app/resources/images/noti.png" alt="" onclick="showNotifications()">
         </li>
         <li class="tabLink profileLink">
             <a href="/Profile/viewProfile/<?=$profile->profile_id?>">
