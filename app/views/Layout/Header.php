@@ -17,8 +17,8 @@
             </a>
         </li>
         <li class="tabLink messengerLink">
-            <a href="/Message/messages">
-                <img src="/app/resources/images/dm.png" alt="">
+            <a href="">
+                <img src="/app/resources/images/dm.png" alt="" onclick="showMessages()">
             </a>
         </li>
         <li class="tabLink createPostLink">

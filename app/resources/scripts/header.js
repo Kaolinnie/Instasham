@@ -67,5 +67,8 @@ function clearSearchBar() {
     $("#search_bar").val("");
 }
 function showNotifications() {
-    console.log("no notifications");
+    alert('not implemented');
+}
+function showMessages() {
+    alert('not implemented');
 }
