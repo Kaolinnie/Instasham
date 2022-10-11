@@ -66,3 +66,14 @@ function publishPost(event) {
 function clearSearchBar() {
     $("#search_bar").val("");
 }
+
+// live search
+function liveSearch(){
+    const searchInput = document.getElementById('search_bar');
+
+    searchInput.addEventListener('input', updateValue);
+
+    function updateValue(e) {
+        console.log(e.target.value);
+}
+}
