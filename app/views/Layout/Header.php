@@ -7,8 +7,11 @@
         <img src="/app/resources/images/instashamLogo.png" alt="logo" id="headerLogo">
     </a>
         <div class="searchBar">
-        <input type="text" name="search_bar" id="search_bar" placeholder="Search">
-        <img src="/app/resources/images/clear.png" alt="" class="clearButton" onclick="clearSearchBar()">
+        <form action='/Publication/searchByKeyword' action="GET">
+            <input type="text" name="search_bar" id="search_bar" placeholder="Search">
+            <img src="/app/resources/images/clear.png" alt="" class="clearButton" onclick="clearSearchBar()">
+        </form>
+        <!-- SEARCH FUNCTION -->
     </div>
     <ul class="tabLinks">
         <li class="tabLink homeLink">

@@ -58,4 +58,13 @@
             $STMT = self::$_connection->prepare($SQL);
             $STMT->execute(['caption'=>$this->caption,'publication_id'=>$this->publication_id]);
         }
+
+        public function getPubByKeyword($keyword){
+            $SQL = "SELECT * FROM publication WHERE caption like :keyword ";
+            $STMT = self::$_connection->prepare($SQL);
+            //$STMT->execute(['keyword'=>$keyword]);
+            $STMT->execute(['keyword'=>$keyword]);
+            $STMT->setFetchMode(\PDO::FETCH_CLASS,'app\models\Publication');
+            return $STMT->fetchAll();
+        }
     }
