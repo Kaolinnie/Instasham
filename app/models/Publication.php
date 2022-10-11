@@ -60,10 +60,9 @@
         }
 
         public function getPubByKeyword($keyword){
-            $SQL = "SELECT * FROM publication WHERE caption like :keyword ";
+            $SQL = "SELECT * FROM publication WHERE caption like '%$keyword%'";
             $STMT = self::$_connection->prepare($SQL);
-            //$STMT->execute(['keyword'=>$keyword]);
-            $STMT->execute(['keyword'=>$keyword]);
+            $STMT->execute();
             $STMT->setFetchMode(\PDO::FETCH_CLASS,'app\models\Publication');
             return $STMT->fetchAll();
         }
