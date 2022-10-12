@@ -10,6 +10,8 @@ $("#post_picture_input").change(function() {
     };
     return;
 });
+$("#search_bar").on("input",function() {liveSearch()});
+
 function createPost() {
     $.ajax({
         type: 'GET',
@@ -65,20 +67,29 @@ function publishPost(event) {
 };
 function clearSearchBar() {
     $("#search_bar").val("");
+    $(".searchOutput").remove();
 }
 
 // live search
 function liveSearch(){
-    const searchInput = document.getElementById('search_bar');
-
-    searchInput.addEventListener('input', updateValue);
-
-    function updateValue(e) {
-        console.log(e.target.value);
+    var keyword = $("#search_bar").val();
+    $(".searchOutput").remove();
+    if(keyword=="") return;
+    $.ajax({
+        url: '/Publication/searchByKeyword',
+        type: 'POST',
+        data: {'keyword' : keyword},
+        success: function(data) {
+            var html = $.parseHTML(data);
+            var num = $(html).find(".searchPublicationDiv").length;
+            if(num==0) return;
+            $("body").append(data);
+        }
+    });
 }
 function showNotifications() {
     alert('not implemented');
 }
 function showMessages() {
-    alert('not implemented')
+    alert('not implemented');
 }

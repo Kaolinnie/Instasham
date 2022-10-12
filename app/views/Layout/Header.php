@@ -6,13 +6,10 @@
     <a href="/Main/index">
         <img src="/app/resources/images/instashamLogo.png" alt="logo" id="headerLogo">
     </a>
-        <div class="searchBar">
-        <!-- SEARCH FUNCTION -->
-        <form action='/Publication/searchByKeyword' action="GET">
-            <input type="text" name="search_bar" id="search_bar" placeholder="Search">
-            <img src="/app/resources/images/clear.png" alt="" class="clearButton" onclick="clearSearchBar()">
-        </form>
-    
+    <div class="searchBar">
+    <!-- SEARCH FUNCTION -->
+        <input type="text" name="search_bar" id="search_bar" placeholder="Search" autocomplete="off">
+        <img src="/app/resources/images/clear.png" alt="" class="clearButton" onclick="clearSearchBar()">
     </div>
     <ul class="tabLinks">
         <li class="tabLink homeLink">

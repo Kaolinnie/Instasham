@@ -67,6 +67,7 @@ header img {
   list-style-type: none;
 }
 
+/* search bar */
 .searchBar {
   position: relative;
   width: 20%;
@@ -95,6 +96,65 @@ header img {
   opacity: 50%;
   cursor: pointer;
 }
+.searchOutput {
+  display: flex;
+  width: 60%;
+  height: 40%;
+  position:fixed;
+  top: 10%;
+  left: 20%;
+  border: 1px rgb(230, 230, 230) solid;
+  box-shadow: 0 0 5px #888888;
+  overflow:auto;
+  overflow-x:hidden;
+  background-color: white;
+  scroll-snap-type: y mandatory;
+}
+
+.searchPublicationsDivision {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.searchPublicationDiv {
+  display:flex;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align:start;
+}
+
+.searchImgDiv {
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+.searchImgDiv img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.searchCaptionDiv {
+  flex-grow:1;
+  display: flex;
+  padding: 1vw;
+}
+.searchCaptionDiv img {
+  height: 20%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.searchCaptionContent {
+  flex-grow:1;
+  padding-left:1vw;
+  display:flex;
+  flex-direction: column;
+}
+
+
+
+
+
 .createPostLink {
   cursor: pointer;
 }
@@ -107,3 +167,6 @@ header img {
 .notificationsLink {
   cursor: pointer;
 }
+
+
+
