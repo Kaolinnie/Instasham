@@ -1,3 +1,4 @@
+CREATE DATABASE IF NOT EXISTS instasham;
 use instasham;
 
 --
