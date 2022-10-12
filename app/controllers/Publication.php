@@ -74,4 +74,19 @@
             $post->updateCaption();
             echo $publication_id;
         }
+
+        // search query
+        public function searchByKeyword(){
+            if(isset($_GET['search_bar'])){
+                $publication = new \app\models\Publication();
+                $search_text = $this->validate_input($_GET['search_bar']);
+                $search_text=ltrim($search_text);
+                $search_text=rtrim($search_text);
+                //var_dump( $search_text);
+                $publication = $publication->getPubByKeyword($search_text);
+                $this->view('Main/explore',$publication);
+              
+            }
+        }
+
     }

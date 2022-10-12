@@ -36,21 +36,6 @@ class User extends \app\core\Controller {
 
     public function register(){
 		if(isset($_POST['registerSubmit'])){
-            if(empty($_POST['username'])  && empty($_POST['password'])){
-                $errormsg = ['username'=>'username is required', 'password'=> 'password is required'];
-                $this->view('User/register', $errormsg);
-                return;
-            }
-            if(empty($_POST['username'])){
-                $errormsg = ['username'=>'username is required'];
-                $this->view('User/register',  $errormsg);
-                return;
-            }
-            if(empty($_POST['password'])){
-                $errormsg = ['password'=>'password is required'];
-                $this->view('User/register',  $errormsg);
-                return;
-            }
             if( !empty($_POST['password']) && $_POST['password'] === $_POST['passwordVerify']){
                 $user = new \app\models\User();
                 if($user->getByUsername($_POST['username'])){
