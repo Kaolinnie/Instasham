@@ -76,4 +76,9 @@ function liveSearch(){
     function updateValue(e) {
         console.log(e.target.value);
 }
+function showNotifications() {
+    alert('not implemented');
+}
+function showMessages() {
+    alert('not implemented')
 }

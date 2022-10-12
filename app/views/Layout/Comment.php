@@ -1,7 +1,5 @@
 <div class='comment'>
-    <div class="profileImg">
-        <a href='/Profile/viewProfile/<?=$data["commentProfile"]->profile_id?>'><img src='/images/profiles/<?=$data["commentProfile"]->profile_pic?>' class='commentProfile'/></a>
-    </div>
+    <a href='/Profile/viewProfile/<?=$data["commentProfile"]->profile_id?>'><img src='/images/profiles/<?=$data["commentProfile"]->profile_pic?>' class='commentProfile'/></a>
     <a href='/Profile/viewProfile/$commentProfile->profile_id'><h6 class='commentUsername'><?=$data["commentProfile"]->username?></h6></a>
     <p class='commentText'><?=$data["comment"]->comment?></p>
     <input type='text' value='<?=$data["comment"]->comment?>' class='editCommentInput' style='display:none'>

@@ -15,17 +15,13 @@ main {
     grid-template-columns: 20% 80%;
 }
 #profilePic {
-    height: 100%;
-    width: auto;
+    height: 16vh;
+    aspect-ratio: 1/1;
     float: left;
+    border-radius: 50%;
+    object-fit: cover;
     margin-right: 70px;
     margin-bottom:50px;
-}
-.imgSideDiv {
-    aspect-ratio: 1/1;
-    height: 16vh;
-    border-radius: 50%;
-    overflow:hidden;
 }
 .rightSideProfile {
     flex-grow:1;

@@ -20,14 +20,14 @@ body {
 
 main {
   height: 100%;
-  padding-top: 3rem;
+  padding-top: 4rem;
 }
 
 header {
   padding: 5px 30px 5px 30px;
   position: fixed;
   width: 100%;
-  height: 3rem;
+  height: 4rem;
   background: rgb(165,165,236);
   background: linear-gradient(-45deg, rgba(165,165,236,0.5) 50%, rgba(0,212,255,0.5) 100%);
   border-bottom: 1px solid rgb(228, 228, 228);
@@ -39,15 +39,23 @@ header img {
   width: auto;
   height: 100%;
 }
-
-.profileLink {
+.profileLink :is(a, img) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 50%;
-  overflow:hidden;
+
 }
 
 .tabLink {
   height:100%;
+  transform: scale(1.0);
+  transition: all 0.5s;
   aspect-ratio: 1 / 1;
+  filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.4));
+}
+.tabLink:hover {
+  transform: scale(1.2);
 }
 
 .tabLinks {
@@ -71,7 +79,8 @@ header img {
   border: none;
   width: 100%;
   height: 100%;
-  padding: 10px;
+  padding: 15px;
+  padding-right: 12%;
 }
 .searchBar input:focus {
   outline: none;
@@ -94,4 +103,7 @@ header img {
   pointer-events: none;
   user-select: none;
   overflow:hidden;
+}
+.notificationsLink {
+  cursor: pointer;
 }
