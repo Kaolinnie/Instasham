@@ -7,6 +7,8 @@
 	    public function index(){
         $publication = new \app\models\Publication();
         $publication = $publication->getByProfileId($_SESSION['profile_id']);
+        unlink("images/publications/$publication->picture");
+        $publication->picture;
         $publication->remove();
         header('location:/Main/index');
 	}
