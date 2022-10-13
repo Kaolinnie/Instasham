@@ -75,18 +75,30 @@
             echo $publication_id;
         }
 
-        // search query
+        #[\app\filters\Login]
         public function searchByKeyword(){
-            if(isset($_GET['search_bar'])){
-                $publication = new \app\models\Publication();
-                $search_text = $this->validate_input($_GET['search_bar']);
+            if(isset($_POST['keyword'])){
+                $profile = new \app\models\Profile();
+                $publications = new \app\models\Publication();
+                $search_text = $this->validate_input($_POST['keyword']);
                 $search_text=ltrim($search_text);
                 $search_text=rtrim($search_text);
-                //var_dump( $search_text);
-                $publication = $publication->getPubByKeyword($search_text);
-                $this->view('Main/explore',$publication);
-              
+                $publications = $publications->getPubByKeyword($search_text);
+                $posts = [];
+		        foreach($publications AS $post) {
+                    $postProfile = $profile->getProfileByPost($post->publication_id);
+                    $posts[] = ["publication"=>$post,"profile"=>$postProfile];
+		        }
+                echo $this->view('Layout/SearchPublications',$posts);
             }
+        }
+
+        #[\app\filters\Login]
+        public function deletePublication($publication_id) {
+            $publication = new \app\models\Publication();
+            $publication= $publication->get($publication_id);
+            $publication->remove();
+            header('location:/Main/index');
         }
 
     }

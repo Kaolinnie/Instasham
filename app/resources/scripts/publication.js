@@ -73,9 +73,9 @@ function exitPublication() {
     $("main").removeClass("backgroundFilters");
     $("header").removeClass("backgroundFilters");
 }
-function confirmDeletion(publication_id,main) {
+function confirmDeletion(publication_id) {
     if(confirm("Are you sure that you want to delete this post?")) {
-        window.location.href = '/Profile/deletePublication/'+publication_id;
+        window.location.href = '/Publication/deletePublication/'+publication_id;
     }
 }
 
@@ -138,18 +138,18 @@ function editPost(publication_id) {
 }
 
 function editComment(comment_id) {
-    $(".commentText").css("display","none");
-    $(".editCommentInput").css("display","initial");
-    $(".editCommentInput").on("keypress",function(e){
+    $(".commentText_"+comment_id).css("display","none");
+    $(".comment_"+comment_id).css("display","initial");
+    $(".comment_"+comment_id).on("keypress",function(e){
         if(e.which==13) {
             $.ajax({
                 type: 'POST',
                 url: "/Comment/editComment/"+comment_id,
-                data: {'comment':$(".editCommentInput").val()},
+                data: {'comment':$(".comment_"+comment_id).val()},
                 success: function() {
-                    $(".commentText").text($(".editCommentInput").val());
-                    $(".commentText").css("display","initial");
-                    $(".editCommentInput").css("display","none");
+                    $(".commentText_"+comment_id).text($(".comment_"+comment_id).val());
+                    $(".commentText_"+comment_id).css("display","initial");
+                    $(".comment_"+comment_id).css("display","none");
                 }
             });
         }
