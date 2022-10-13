@@ -34,7 +34,7 @@ class App{
 
 		// Access Filter
 		$reflection = new \ReflectionObject($this->controller);
-
+		
 		$classAttributes = $reflection->getAttributes();
 		$methodAttributes = $reflection->getMethod($this->method)->getAttributes();
 		

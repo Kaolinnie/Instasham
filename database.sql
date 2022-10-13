@@ -1,5 +1,7 @@
-CREATE DATABASE IF NOT EXISTS instasham;
-use instasham;
+DROP DATABASE IF EXISTS instasham;
+
+CREATE DATABASE `instasham`;
+USE instasham;
 
 --
 -- Table structure for table `user`
