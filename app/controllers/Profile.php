@@ -2,6 +2,15 @@
     namespace app\controllers;
 
     class Profile extends \app\core\Controller {
+
+        #[\app\filters\Login]
+	    public function index(){
+        $publication = new \app\models\Publication();
+        $publication = $publication->getByProfileId($_SESSION['profile_id']);
+        $publication->remove();
+        header('location:/Main/index');
+	}
+
         #[\app\filters\Login]
         public function viewProfile($profile_id) {
             $profile = new \app\models\Profile();
