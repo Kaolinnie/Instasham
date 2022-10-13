@@ -1,5 +1,6 @@
-DROP DATABASE instasham IF EXISTS;
+DROP DATABASE IF EXISTS instasham;
 
+CREATE DATABASE `instasham`;
 USE instasham;
 
 --
