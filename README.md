@@ -85,6 +85,16 @@ applications.
 </tr>
 </table>
 
+# To run the app :octocat:
+- Download & install xampp
+- clone our repo to the htdocs directory
+  - Located in `C:\xampp\htdocs`
+- Run xampp and start apache and MySQL
+- Click the MySQL admin button
+- Once you're in the admin page
+- import the included database.sql
+- Now go to your browser and type localhost
+- Hope you'll like our app
 
 # TEAM :sunglasses:
 - Kaolin
