@@ -16,15 +16,15 @@ applications.
 - Implement multi-table databases.
 - Use PDO and appropriate SQL to interact with this database.
 # Technologies
-HTML, CSS and JavaScript
-PHP
-mySQL
-Ajax
-Apache web server (XAMPP)
-Linux Server (Option to host the database)
+- HTML, CSS and JavaScript
+- PHP
+- mySQL
+- Ajax
+- Apache web server (XAMPP)
+- Linux Server (Optional: host the database)
 ## Framework
-Jquery
-Bootstrap 5
+- Jquery
+- Bootstrap 5
 
 # Requirements
 - To become a user, as a person, I can register.
@@ -61,9 +61,9 @@ Bootstrap 5
 # Mockups :pencil2:
 
 <p align="center">
-        <img src="images\mockups\login.jpg" alt="wire frame image" width="250">
+        <img src="images\mockups\login.JPG" alt="wire frame image" width="250">
         <figcaption>Login page</figcaption>
-        <img src="images\mockups\home.jpg" alt="wire frame image" width="250">
+        <img src="images\mockups\home.JPG" alt="wire frame image" width="250">
         <figcaption>Home page</figcaption>
 </p>
 
