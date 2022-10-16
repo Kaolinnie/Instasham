@@ -59,13 +59,14 @@ applications.
 - Refresh button for comments and posts
 
 # Mockups :pencil2:
+<p float="left">
+<img src="images\mockups\login.JPG" alt="wire frame image" width="250">
+<p>Login page</p>
 
-<p align="center">
-        <img src="images\mockups\login.JPG" alt="wire frame image" width="250">
-        <figcaption>Login page</figcaption>
-        <img src="images\mockups\home.JPG" alt="wire frame image" width="250">
-        <figcaption>Home page</figcaption>
+<img src="images\mockups\home.JPG" alt="wire frame image" width="250">
+<p>Home page</p>
 </p>
+
 
 # TEAM :sunglasses:
 - Kaolin
