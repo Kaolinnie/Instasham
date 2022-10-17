@@ -6,16 +6,10 @@ class Model{
 
 	public function __construct(){
 		// local DB
-		$server = 'localhost';//127.0.0.1
+		$server = 'localhost';
 		$dbname = 'instasham';
 		$username = 'root';
 		$password = '';
-
-		// my hosted DB which you can access right now if you would like, just uncomment
-		// $server = 'jodyplex.ddns.net';
-		// $dbname = 'instasham';
-		// $username = 'instasham';
-		// $password = 'eCommerceInstashamDB2022!';
 
 		try{
 			self::$_connection = new \PDO("mysql:host=$server;dbname=$dbname",

@@ -98,7 +98,7 @@
             $publication = new \app\models\Publication();
             $publication= $publication->get($publication_id);
             $publication->remove();
-            header('location:/Profile/index');
+            header('location:/Main/index');
         }
 
     }

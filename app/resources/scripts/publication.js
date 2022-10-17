@@ -75,7 +75,7 @@ function exitPublication() {
 }
 function confirmDeletion(publication_id) {
     if(confirm("Are you sure that you want to delete this post?")) {
-        window.location.href = '/Profile/index/';
+        window.location.href = '/Publication/deletePublication/'+publication_id;
     }
 }
 
